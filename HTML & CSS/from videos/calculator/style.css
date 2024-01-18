@@ -1,0 +1,25 @@
+.main{
+    width: 230px;
+    height: 300px;
+    border: 2px solid red;
+}
+.sub_main{
+    width: 225px;
+    height: 50px;
+    border: 2px solid blue;
+    background-color: lightgreen;
+}
+
+.btn{
+    margin-top: 5px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid blue;
+    display: inline-block;
+    background-color: lightgreen;
+   
+}
+.num{
+text-align: center;
+
+}

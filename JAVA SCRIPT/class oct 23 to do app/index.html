@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="mianDiv">
+        <div>
+        <input value="sdfsn" id="input" type="text" placeholder="Enter To Do">
+        <button class="mainbtn" onclick="addToDoHandler()">Add</button>
+        <button class="mainbtn" onclick="deleteAllToDoHandler()">Delete All</button>
+    
+        <div>
+            <ul id="ul"> 
+
+            </ul>
+        </div>
+    </div>
+    </div>
+
+    <div id="modalDiv" class="all">
+        <div id="modal">
+            <!-- <h1 class="amin">This is demo of Modal</h1> -->
+            <input class="amin" id="modalInput" type="text" placeholder="Enter Text">
+            <div id="buttns">
+                <button class="amin close" onclick="clos()">Close</button>
+            <button class="amin" onclick="ok()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>

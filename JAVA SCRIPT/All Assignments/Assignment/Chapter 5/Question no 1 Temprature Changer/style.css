@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+.mainDiv{
+    text-align: center;
+    margin: 20px;
+}
+.mainDiv div{
+    margin: 20px;
+    padding: 20px;
+}
+button{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+}
+button:hover{
+    background-color: #389533;
+    font-size: 20px;
+    transition-duration: 1s;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crud project with firebase</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+    <!-- Banner -->
+    <div class="container">
+        <header>Login Form</header>
+        <div class="form-outer">
+            <form action="#">
+                <div class="page slide-page">
+                    <div class="field">
+                        <div class="label">
+                            Email
+                        </div>
+                        <input type="email" id="emailInput">
+                    </div>
+                    <div class="field">
+                        <div class="label">
+                            Password
+                        </div>
+                        <input type="password" id="passwordInput">
+                    </div>
+                    <div class="field forgot">
+                        <p>Forgot Password</p>
+                    </div>
+                    <p class="login" onclick="goToSignPage()">SignUp</p>
+                    <div class="field">
+                        <button id="loginbtn" class="firstNext">log In</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Product -->
+    <script src="app.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+
+.motor{
+    margin: 50px;
+}
+
+.pakistan{
+    width: 200px;
+    height: 50px;
+    margin-left: 20px;
+    border: 3px solid black;
+    display: inline-block;
+}
+.form{
+    display: inline-block;
+}
+.form input{
+    margin-left: 30px;
+    width: 600px;
+    height: 50px;
+    border: 3px solid black;
+}
+.btn{
+    width: 200px;
+    height: 30px;
+    border: 3px solid black;
+}
+.login{
+    font-size: 30px;
+    color: black;
+    margin-left: 20px;
+}
+
+.sell{
+    color: lightgray;
+    margin-left: 20px;
+}
+.logo{
+    margin-left: 10px;
+}
+.nav{
+    margin: 20px;
+}
+.nav ul li{
+    display: inline-block;
+    margin: 10px;
+}
+.nav ul li:hover{
+    color: blue ;
+}
+.nav select{
+    border: none;
+}
+.slideImg{
+    margin: 30px;
+}
+.fresh{
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.cardMain div{
+    display: inline-block;
+    margin-left: 100px;
+    border: 2px solid black;
+
+}
+.cardMain div p{
+    background-color: white;
+    margin-top: 175px;
+}
+.firstcard{
+    background-image: url(./Assests/iphone.jpeg);
+    width: 200px;
+    height: 280px;
+    
+}
+.solar{
+    
+    width: 200px;
+    background-image: url(./Assests/solar.jpeg);
+    height: 290px;
+}
+.watch{
+    background-image: url(./Assests/watch.jpeg);
+    height: 290px;
+    width: 200px;
+
+}
+.plot{
+    background-image: url(./Assests/plot.jpeg);
+    height: 290px;
+    width: 200px;
+
+}
+.imggg div{
+    display: inline-block;
+}
+.ftext{
+    margin-right: 20px;
+    border-right: 2px solid black;
+}
+.ftext h1{
+    margin-right: 40px;
+}
+.mainFoot div{
+    margin-left: 80px;
+    
+}
+.mainFoot{
+    background-color: lightgray;
+}
+.foott img{
+width: 50px;
+}
+.lastp{
+    background-color: #002f34;
+   padding-left: 72.8%;
+   padding-right: 3%;
+
+}
+.lastp p{
+color: white;
+}
+.bttn{
+    border: 2px solid black;
+    text-align: center;
+    height: 50px;
+    width: 120px;
+    margin-left: 50%;
+    font-weight: bolder;
+}
+.bttn:hover{
+ border-color: green;
+}
+.footimgg{
+    margin-right: 30px;
+}
+.mainFoot div p a{
+    text-decoration: none;
+}
+.navv li a{
+    text-decoration: none;
+}
+.disable{
+    visibility: hidden;
+}

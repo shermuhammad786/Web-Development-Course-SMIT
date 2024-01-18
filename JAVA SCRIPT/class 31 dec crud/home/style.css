@@ -1,0 +1,40 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+.mainContainer{
+	display: flex;
+	justify-content: center;
+}
+.submainDiv{
+	width: 95%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.createPost{
+	align-self: center;
+}
+.middleSec{
+	display: flex;
+	justify-content: space-between;
+}
+.aboutPost{
+	margin: 20px 10px;
+}
+#createPostJs{
+	margin: 10px;
+	background-color: burlywood;
+}
+.imgUname{
+	display: flex;
+	align-items: center;
+}
+.imgUname img{
+	border-radius: 50%;
+}
+.imgUname p{
+	margin-left: 20px;
+}

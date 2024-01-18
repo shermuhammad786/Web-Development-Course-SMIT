@@ -1,0 +1,34 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-size: 30px;
+}
+.all{
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+}
+#contents{
+    border: 2px solid red;
+    position: relative;
+}
+.cross{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    /* margin-top:10px; */
+    cursor: pointer;
+}
+.logo{
+    margin-top: 30px;
+}
+#short{
+    /* border: 2px solid red; */
+    height: fit-content;
+    /* padding: 20px; */
+}
+#short button{
+    padding: 10px;
+    background-color: unset;
+}

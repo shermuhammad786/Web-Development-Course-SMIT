@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="allDiv">
+        <div>
+        <p id="resultValue"></p>
+        </div>
+        <div>
+            <input id="result"  type="text" >
+        </div>
+        <div class="firstSecLastRow">
+            <button onclick="num('%')">%</button>
+            <button onclick="clearInputResult()">CE</button>
+            <button onclick="clearResult()">C</button>
+            <button onclick="del()">del</button>
+        </div>
+        <div class="firstSecLastRow">
+            <button onclick="divideOne()">1/x</button>
+            <button onclick="square()">x<sup>2</sup></button>
+            <button onclick="squareRoot()">Sq:root </button>
+            <button id="divided" onclick="funNum('/')">&divide;</button>
+        </div>
+        <div class="thrForFifRow">
+            <button onclick="num('7')">7</button>
+            <button onclick="num('8')">8</button>
+            <button onclick="num('9')">9</button>
+            <button id="multiply" onclick="funNum('*')">&times;</button>
+        </div>
+        <div class="thrForFifRow">
+            <button onclick="num('4')">4</button>
+            <button onclick="num('5')">5</button>
+            <button onclick="num('6')">6</button>
+            <button id="add" onclick="funNum('+')">+</button>
+        </div>
+        <div class="thrForFifRow">
+            <button onclick="num('1')">1</button>
+            <button onclick="num('2')">2</button>
+            <button onclick="num('3')">3</button>
+            <button id="minus" onclick="funNum('-')">-</button>
+        </div>
+        <div class="firstSecLastRow">
+            <button onclick="plusMinus()"> +/-</button>
+            <button onclick="num('0')">0</button>
+            <button id="point" onclick="pointt('.')">.</button>
+            <button id="equal" onclick="equal()" class="plus"> =</button>
+        </div>
+    </div>
+
+
+    <script src="./app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+.foodCities{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    
+}
+.cityDiv{
+    border: 2px solid red;
+    width: 50%;
+    margin-left: 25%;
+    /* display: flex; */
+    /* justify-content: center; */
+
+
+}

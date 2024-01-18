@@ -1,0 +1,50 @@
+.main{
+    margin-top: 300px;  
+}
+.main div{
+    width: 100px;
+    height: 100px;
+    border: 2px solid red;
+    margin: auto auto;
+    margin-top: 20px;
+}
+.one{
+    background-color: red;    
+}
+.six{
+    background-color: black;
+    position: relative;
+    left: 800px;
+    bottom: 115px;
+    visibility: hidden;   
+}
+
+.five{
+    background-color: grey;
+    position: relative;
+    left: 800px;
+    bottom: 495px;
+    visibility: hidden;
+}
+.stick{
+    width: 50px;
+    height: 700px;
+    border: 2px solid blue;
+    border-radius: 25px;
+    position: absolute;
+    top: 30px;
+    left: 400px;
+    background-color: yellow;    
+}
+.two{
+    background-color: black;
+}
+.three{
+    background-color: blueviolet;
+}
+.four{
+    background-color: yellow;
+}
+.five{
+    background-color: grey;
+}

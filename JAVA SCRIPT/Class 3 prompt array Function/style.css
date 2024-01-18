@@ -1,0 +1,132 @@
+.image img{
+    width: 100px;
+    height: 200px;
+}
+.image{
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.sherText1{
+    position: absolute;
+    top: 250px;
+    left: 200px;
+   animation-name: text_1;
+   animation-duration: 3s;
+   opacity: 1;
+}
+@keyframes text_1 {
+    from{
+        transform: translate(250px);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0px);
+        opacity: 1;
+    }
+    
+}
+.barkatText1{
+    position: absolute;
+    top: 250px;
+    right: 200px;
+    animation-name: textb_1;
+   animation-duration: 3s;
+   animation-delay: 3s;
+   /* opacity: 0.4; */
+   /* visibility: visible; */
+}
+@keyframes textb_1 {
+    from{
+        transform: translate(250px);
+        opacity: 1;
+        /* visibility: hidden; */
+    }
+    to{
+        transform: translate(0px);
+        opacity: 1;
+        /* visibility: hidden; */
+    }
+}
+.sherText2{
+    position: absolute;
+    top: 190px;
+    left: 50px;
+    animation-name: text_2;
+    animation-duration: 6s;
+    animation-delay: 6s;
+    opacity: 1;
+}
+@keyframes text_2 {
+    from{
+        transform: translate(250px);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0px);
+        opacity: 1;
+    }
+}
+.barkatText2{
+    position: absolute;
+    top: 190px;
+    right: 50px;
+    animation-name: textb_2;
+    animation-duration: 6s;
+    animation-delay: 9s;
+    opacity: 1;
+}
+@keyframes textb_2 {
+    from{
+        transform: translate(250px);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0px);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+.sherText3{
+    position: absolute;
+    top: 150px;
+    left: 50px;
+    animation-name: text_2;
+    animation-duration: 6s;
+    animation-delay: 13s;
+    opacity: 1;
+}
+@keyframes text_2 {
+    from{
+        transform: translate(250px);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0px);
+        opacity: 1;
+    }
+}
+.barkatText3{
+    position: absolute;
+    top: 150px;
+    right: 300px;
+    animation-name: textb_2;
+    animation-duration: 6s;
+    animation-delay: 16s;
+    opacity: 1;
+}
+@keyframes textb_2 {
+    from{
+        transform: translate(250px);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0px);
+        opacity: 1;
+    }
+}

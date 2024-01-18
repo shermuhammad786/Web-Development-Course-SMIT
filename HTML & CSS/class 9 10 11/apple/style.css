@@ -1,0 +1,263 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.nav{
+    /* border: 2px solid red; */
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+
+}
+.navBar{
+    display: flex;
+    justify-content: space-evenly;
+    /* background-color: #f2f2f4; */
+    padding: 10px;
+    list-style: none;
+    
+    width: 80%;
+}
+.midnav{
+    display: flex;
+justify-content: center;    
+    /* border: 2px solid red; */
+    width: 100%;
+}
+.imgText{
+    /* border: 2px solid blue; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 30px;
+    text-align: center;
+    background-color: #f2f2f4;
+    height: 600px;
+}
+.text{
+    position: absolute;
+    z-index: 1;
+
+}
+.img{
+    position: absolute;
+       
+}
+
+/* Section 2 start from here */
+.section2PhoneText{
+    /* border: 2px solid blue; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 30px;
+    text-align: center;
+    background-color: #f2f2f4;
+    height: 700px;
+    overflow: hidden;
+
+}
+.section2Text{
+    position: absolute;
+    z-index: 1;
+    color: white;
+    margin: 10px;
+    padding: 20px;
+}
+.section2Text p{
+    margin: 20px;
+}
+.section2phone{
+    position: absolute;
+    
+       
+}
+
+
+        /* section 3 start form here  */
+        .section2PhoneText{
+    /* border: 2px solid blue; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 30px;
+    text-align: center;
+    background-color: #f2f2f4;
+    height: 700px;
+    overflow: hidden;
+
+}
+.section2Text{
+    position: absolute;
+    z-index: 1;
+    color: white;
+    margin: 10px;
+    padding: 20px;
+}
+.section2Text p{
+    margin: 20px;
+}
+.section2phone{
+    position: absolute;
+    
+       
+}
+
+
+        /* section 3 start  */
+.section2PhoneText{
+    /* border: 2px solid blue; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 30px;
+    text-align: center;
+    background-color: #f2f2f4;
+    height: 700px;
+    overflow: hidden;
+
+}
+.section2Text{
+    position: absolute;
+    z-index: 1;
+    color: white;
+    margin: 10px;
+    padding: 20px;
+}
+.section2Text p{
+    margin: 20px;
+}
+.section2phone{
+    position: absolute;
+    
+       
+}
+
+            /* section 3 start  */
+
+.section3PhoneText{
+    /* border: 2px solid blue; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 30px;
+    text-align: center;
+    /* background-color: #f2f2f4; */
+    height: 700px;
+    /* overflow: hidden; */
+
+    background-color: #f2f2f4;
+}
+.section3Text{
+    background-color: #f2f2f4;
+    /* border: 2px solid red; */
+    position: absolute;
+    z-index: 1;
+    /* color: white; */
+    margin: 10px;
+    padding: 20px;
+}
+.section3Text p{
+    margin: 20px;
+}
+.section3phone{
+    position: absolute;
+    top: 250px;
+    width: 100%;
+    height: 500px;
+}
+
+
+
+.section4div{
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    height: 500px;
+}
+
+
+.section4div2Text{
+    position: absolute;
+    bottom: 40px;
+    right: 23%;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+.section4div2{
+    position: relative;  
+    top: 0px;
+    width: 50%;
+    overflow: hidden;
+    
+}
+.section4div1{
+    position: relative;
+    top: 3px;
+    overflow: hidden;
+    width: 49%;
+}
+.section4div1Text1{
+    position: absolute;
+    top: 80px;
+    right: 23%;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+.atmText{
+    top: 80px;
+    font-size: 20px;
+}
+.sec6 p,pre{
+    color: white;
+}
+
+
+
+
+
+/* footer */
+.footPara{
+    display: flex;
+    justify-content: center;
+    position:relative;
+    bottom: 200px;
+    background-color: rgba(128, 128, 128, 0.1)
+}
+.footPara span{
+    text-decoration: underline;
+}
+.footer{
+    background-color: rgba(128, 128, 128, 0.1);
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    position: relative;
+    bottom: 200px;
+}
+.footer li{
+    list-style-type: none;
+}
+.more{
+    margin-left: 10%;
+    position: relative;
+    bottom: 170px;
+
+}
+.privacy{
+    margin-left: 50px;
+    margin-right: 300px;
+}
+.moreway span {
+    color: blue;
+    text-decoration: underline;
+}

@@ -1,0 +1,11 @@
+/* .main ul li{
+    display: inline-block;
+}
+.home{
+    display: none;
+} */
+
+img:hover{
+    background-image: url(./mypic.jpg);
+    
+}
