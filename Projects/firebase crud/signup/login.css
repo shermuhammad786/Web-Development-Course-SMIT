@@ -1,0 +1,20 @@
+.password {
+    background-image: url(./assests/password.png);
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: 5px;
+    padding-right: 150%;
+}
+
+.email {
+    background-image: url(./assests/email.png);
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: 5px;
+    padding-right: 150%;
+}
+
+.emailAndPassword::placeholder{
+    width: 150px;
+    padding: 30px;
+}

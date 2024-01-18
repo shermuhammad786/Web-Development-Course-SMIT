@@ -1,0 +1,75 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+span {
+    background-color: rgb(71, 173, 71);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: default;
+}
+
+fieldset {
+    margin-top: 30px;
+    padding: 30px 90px;
+    /* width: 450px; */
+    background-color: #ccc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+input {
+    width: 100%;
+    padding: 15px;
+    /* padding-right: 90px; */
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: unset;
+    border-bottom: 2px solid gray;
+    box-shadow: 0px 0px 10px black;
+}
+
+div {
+    background-image: url(./assests/pic1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200vh;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(216, 50, 32, 0.5);
+    cursor: pointer;
+}
+
+#loginn {
+
+    cursor: pointer;
+}
+
+.signUp {
+    cursor: pointer;
+    width: 100%;
+}
+
+.usericons {
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: 5px;
+    /* padding-left: 40px; */
+    margin: 10px;
+}

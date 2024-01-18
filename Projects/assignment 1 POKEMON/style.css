@@ -1,0 +1,252 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+.imgNav img{
+    height: 30px;    
+}
+.imgNav{
+    text-align: center;
+    background-color: lightgray;
+}
+.navBar{
+    width: 60%;
+    margin: 0 auto;
+}
+.tcg{
+    display: inline-block;
+    float: left;
+}
+.centerImg{
+    margin-left: 20%; 
+}
+.TcgImg{
+    display: inline-block;
+}
+.tcgText{
+    position: absolute;
+    background-color: cornflowerblue;
+    padding: 10px;
+    padding-bottom: 18px;
+    color: white;
+    font-family:  monospace;
+}
+#sleep{
+    position: relative;
+    /* top: 20px; */
+    
+}
+.speel{
+    position: relative;
+    left: 2.5px;
+    top: 10px;
+}
+.sleepImg{
+    display: flex;
+    color: white;
+    background-color: blue;
+    padding: 10px;
+    padding-right: 45px;
+    margin-left: 2px;
+    margin-bottom: 50px;
+    padding-bottom: 35px;
+    
+}
+i{
+    font-style: italic;
+}
+.mainImg{
+    background-color: black;
+    color: white;
+}
+.mainpara {
+    display: inline-block;
+}
+.gobet div{
+    display: inline-block;
+    /* padding: 10px; */
+}
+.gobet .gobet1{
+    background-color: gray;
+    padding-bottom: 20px;
+    text-align: center;
+    color: white;
+    font-family: geneva;
+}
+.gobet .gobet2{
+    background-color: palevioletred;
+    padding-bottom: 20px;
+    text-align: center;
+    color: white;
+    font-family: geneva;
+}
+.gobet .gobet3{
+    background-color: peru;
+    padding-bottom: 20px;
+    text-align: center;
+    color: white;
+    font-family: geneva;
+}
+.slideImg{
+    text-align: center;
+    /* border: 2px solid red; */
+    width: 100%;
+    height: 200px;
+    opacity: 0.7;
+}
+.slideImg div{
+background-color: gray;
+    display: inline-block;
+}
+.slideImg div h2{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+.birth{
+    text-align: center;
+}
+.birth div{
+    display: inline-block;
+    /* padding: 10px; */
+    /* border-radius: 30px; */
+    margin: 10px;
+}
+.birth1{
+    background-color: orangered;
+
+}
+.birth1 h3 , p{
+    /* background-color: orangered; */
+
+    text-align: left;
+    font-size: 13px;
+    padding: 5px;
+}
+
+.birth h3{
+    color: white;
+}
+.unite {
+    text-align: left;
+    background-color: blueviolet;
+}
+.unite h3,p{
+    padding: 5px;
+}
+.D_battle{
+    background-color: lightslategray;
+    color: black;
+}
+.D_battle h3{
+    color: black;
+}
+.beyond{
+    background-color: red;
+    text-align: left;
+}
+.beyond h3 , p{
+    padding: 5px;
+}
+.connect{
+    background-color: goldenrod;
+    position: relative;
+    top: 100px;
+
+    text-align: left;
+}
+.connect h4{
+    position: absolute;
+    top: -100px;
+    background-color: white;
+    padding-bottom: 10px;
+}
+.conclution{
+    background-color: lightgreen;
+
+}
+.conclution h3 , p{
+    text-align: left;
+    padding: 6px;
+}
+.views{
+    position: absolute;
+    top: 20px;
+    right: 15px;
+
+}
+.views h5{
+    background-color: orange;
+    padding: 10px;
+    /* padding-right: 40px; */
+    width: 210px;
+}
+.views p{
+    background-color: blueviolet;
+    padding: 10px;
+}
+.abs{
+    position: relative;
+}
+.footer{
+    /* border: 2px solid red; */
+    background-color: gray;
+
+}
+.footer div{
+display:inline-block;
+width: 220px;
+/* border-left: 2px solid black; */
+}
+.company{
+    margin-left: 170px;
+}
+/* .company h1{
+    font-size: ;
+} */
+.fimg{
+    position: relative;
+    bottom: 150px;
+    
+}
+
+
+
+
+
+
+.rel{
+    position: relative;
+    position: fixed;
+    bottom: -5px;
+    left: 0px;
+    /* border: 2px solid red; */
+    /* width: 30px; */   
+}
+.rel .line{
+    /* border: 2px solid red; */
+    background-color: gray;
+    width: 40px;
+    height: 350px;
+}
+.login{
+    position: absolute;
+    top: 20px;
+    background-color: yellowgreen;
+    width: fit-content;
+    padding: 15px;
+    padding-bottom: 40px;
+}
+.search{
+    position: absolute;
+    top: 90px;
+    background-color: lightgray;
+    width: fit-content;
+    padding: 10px;
+}
+.rel .line , .login , .search{
+    display: inline-block;
+}

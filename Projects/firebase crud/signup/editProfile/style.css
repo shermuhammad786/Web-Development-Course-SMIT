@@ -1,0 +1,18 @@
+
+
+/* page styling */
+.Personaldetails{
+    font-size: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 1px; */
+}
+.personaldetail-ul{
+    display: flex;
+    flex-direction: column;
+}
+
+

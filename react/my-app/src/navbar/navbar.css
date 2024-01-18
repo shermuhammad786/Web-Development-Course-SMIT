@@ -1,0 +1,16 @@
+
+.navbar{
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+  
+  }
+  .navbar li{
+    background-color: rgba(100, 120, 123, 0.3);
+    padding: 10px;
+    border-radius: 20px;
+  }
+  .navbar li:hover{
+    color: blue;
+    cursor: pointer;
+  }

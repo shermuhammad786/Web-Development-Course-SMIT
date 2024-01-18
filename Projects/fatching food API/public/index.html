@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forkify // Search over 1,000,000 recipes</title>
+    <link rel="shortcut icon" href="./logohaibhai.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+</head>
+<!-- hiring mine api -->
+<!-- https://maroon-shorts.cyclic.cloud/api/jobAds/all?limit=10&pageNo=1&keyWord=development&category= -->
+
+<body>
+    <div id="loader">
+        <div class="progress"><div class="innerdiv"><div class="deepdiv"> <div> </div> </div></div></div>
+     </div>
+    <div id="secondLoader">
+        <div class="progress"><div class="innerdiv"><div class="deepdiv"> <div> </div> </div></div></div>
+     </div>
+    
+    <div class="mainContainer">
+
+        <div class="sub-main">
+            <div class="navbar">
+                <img class="logo" src="./logo.png" alt="">
+                <div>
+                    <!-- <form action=""> -->
+                    <input id="search" type="search" placeholder="Search over 1,000,000 recipes...">
+                    <button disabled="true" id="searchBtnHandler" onclick="searchHandler()"> <i class="uil uil-search"></i>
+                        Search
+                    </button>
+                    <!-- </form> -->
+                </div>
+                <h3><i class="uil uil-edit"></i> ADD RECIPE</h3>
+                <h3><i class="uil uil-bookmark"></i> BOOKMARK</h3>
+            </div>
+
+            <div class="sidebar-containers">
+                <!-- sidebar foot items  -->
+                <div id="sidebarItems" class="sidebar">
+
+                </div>
+                <!-- cetner content  -->
+                <div class="center-content-main">
+                    <div id="center-content" class="center">
+                        <div style="display: flex;justify-content: center; align-items: center; height: 40vh;">
+                            <h1 style="margin-bottom: 25px;"><i class="uil uil-smile"></i></h1>
+                            <p class="uil-smil"> Start by searching for a recipe or an ingredient. Have fun!</p>
+                        </div>
+                    </div>
+
+                    <div class="servicesDiv">
+                        <div>
+                            <h4 id="time">
+                            </h4>
+                            <h4 id="services">
+                            </h4>
+                            <h4 id="plusAndMinus">
+                            </h4>
+                        </div>
+                        <h1 id="bookMark" class="bookMark">
+                        </h1>
+                    </div>
+                    <div style="text-align: center; color: #f48982;">
+                        <h1 id="recipesHeading">
+                            <!-- RECIPE INGREDIENTS -->
+                        </h1>
+                        <div id="ingredients" class="ingredients">
+                        </div>
+                    </div>
+                    <div id="howtocook" class="howtocook">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="Copyright">© Copyright by Jonas Schmedtmann. Use for learning or your portfolio. Don't use to teach. Don't claim as your own.</p>
+    </div>
+   
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+.table{
+    background-color: white;
+}
+
+.table tr th{
+    border: 2px solid black;
+}

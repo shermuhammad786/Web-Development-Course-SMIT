@@ -1,0 +1,230 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.nav li{
+    display: inline-block;
+    margin: 10px;
+    font-size: 15px;
+    
+}
+.nav{
+    text-align: center;
+    background-color: lightgray;
+    position: fixed;
+    right: 300px;
+    z-index: 1;
+}
+
+#headImg{
+    background-image: url(./assetes/laptoppp.jpg);
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.head{
+    text-align: center;
+    font-size: 30px;
+    padding-bottom: 400px;
+    
+}
+.head p{
+    color: blue;
+}
+.head p span{
+    margin-left: 10px;
+}
+
+#danceImg{
+    position: relative;
+    bottom: 200px;
+    background-image: url(./assetes/dance.PNG); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(128, 128, 128, 0.1);
+}
+.dance{
+    position: relative;
+    /* bottom: 230px; */
+    text-align: center;
+    font-size: 30px;
+    padding: 50px;
+    padding-bottom: 550px;
+}
+.phoneImg{
+
+}
+.phones{
+    /* position: relative; */
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    /* padding-bottom: 300px; */
+}
+/* .phoneImg{
+    background-image: url(./assetes/phines.jpg);
+} */
+.phones img{
+    position: relative;
+    bottom: 300px;
+    right: 900px;
+}
+.wm{
+    position: relative;
+    bottom: 300px;
+    margin-left: 40px;
+}
+.mobile{
+    text-align: center  ;
+    font-size: 25px;
+    display: inline-block;
+
+}
+.woman{
+    display: inline-block;
+    font-size: 30px;
+}
+.woman img{
+    position: absolute;
+    top:0px;  
+}
+.vision_pro{
+    color: black;
+    text-align: center;
+    position: relative;
+    left: 60px;
+    top: 150px;
+}
+.watchess{
+    position: relative;
+    top: -150px;
+    display: flex;
+    justify-content: space-between;
+}
+#watch{
+    position: relative;
+    width: 49%;
+    background-image: url(./assetes/watchss.jpg);
+    background-repeat: no-repeat;
+    background-size:auto;
+    background-position: -300px ;   
+    
+}
+.watchPara{
+    padding-bottom: 500px;
+    position: relative;
+    color: white;
+    text-align: center;
+    top: 80px;
+    font-size: 25px;
+}
+#watches{
+    position: relative;
+    width: 50%;
+    background-image: url(./assetes/ipads.jpg);
+    /* padding: 400px; */
+    background-repeat: no-repeat;
+    background-position: -300px;
+}
+.watchesPara{
+    color: white;
+    font-size: 25px;
+    position: relative;
+    top: 90px;
+    text-align: center;
+}
+.mobileCard{
+    position: relative;
+    top: -150px;
+    display: flex;
+    justify-content: space-between;
+}
+#mobilee{
+    position: relative;
+    width: 50%;
+    background-image: url(./assetes/phonex.PNG);
+    background-repeat: no-repeat;
+    background-size:auto;
+    background-position: 0px 200px;   
+    
+}
+.mobilePara{
+    padding-bottom: 500px;
+    position: relative;
+    color: black;
+    text-align: center;
+    top: 80px;
+    font-size: 25px;
+}
+
+#card{
+    position: relative;
+    width: 50%;
+    background-image: url(./assetes/atmCard.jpeg);
+    background-repeat: no-repeat;
+    background-position: 100px 200px; 
+    background-size: 500px;
+}
+
+.cardPara{
+    color: black;
+    font-size: 25px; 
+    position: relative;
+    top: 90px; 
+     text-align: center;
+}
+.hJack{
+    position: relative;
+    top: -150px;
+    right: 100px;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-image: url(./assetes/hJack.jpg);
+    background-position: 300px ;
+}
+.hjack_items{
+    position: relative;
+    top: 200px;
+    display:flex;
+    justify-content: space-evenly;
+    padding: 300px;
+    color: white;
+    font-size: 25px;
+}
+.li{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 200px;
+  /* left: 35%; */
+  color: black;
+  font-size: 30px;
+}
+.li li{
+margin: 20px;
+
+}
+
+.footPara{
+    display: flex;
+    justify-content: center;
+    position:relative;
+    bottom: 200px;
+    background-color: rgba(128, 128, 128, 0.1)
+}
+.footPara span{
+    text-decoration: underline;
+}
+.footer{
+    background-color: rgba(128, 128, 128, 0.1);
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    position: relative;
+    bottom: 200px;
+}
+.footer li{
+    list-style-type: none;
+}

@@ -1,0 +1,399 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Nunito Sans, sans-serif;
+}
+
+.mainContainer {
+    height: 235vh;
+    padding: 50px 30px;
+    background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+}
+
+.sub-main {
+    background-color: #f9f5f3;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.logo {
+    overflow-clip-margin: content-box;
+    height: 3.6rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 30px;
+}
+
+#searchBtnHandler {
+    margin-left: -35px;
+    width: 180px;
+    padding: 15px 40px;
+    border-radius: 30px;
+    background: linear-gradient(to right bottom, #fbdb89, #f48982);
+    color: white;
+    font-size: 19px;
+    border: none;
+
+}
+
+.uil-search {
+    color: white !important;
+}
+
+.navbar input {
+    width: 290px;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    font-size: 17px;
+}
+
+.sidebar {
+    width: 30%;
+    height: 170%;
+    margin-top: 30px;
+    overflow: auto;
+
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-track:hover {
+    box-shadow: inset 0 0 5px grey;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+.sidebar:hover .sidebar::-webkit-scrollbar-thumb {
+    background-color: red;
+
+}
+
+.center-content-main {
+    margin-top: 35px;
+    width: 70%;
+}
+
+.center {
+    height: 60%;
+    position: relative;
+}
+
+.uil-smil {
+    width: 45%;
+    font-size: 25px;
+}
+
+
+.sidebar-containers {
+    display: flex;
+    height: 100vh;
+    margin: 10px;
+
+}
+
+.sideBarMenu {
+    display: flex;
+    margin: 35px;
+    gap: 15px;
+}
+
+.sidebarImageDiv::before {
+    content: "";
+    display: block;
+    height: 60px;
+    width: 60px;
+    margin-top: 30px;
+    position: absolute;
+    top: -30px;
+    border-radius: 50%;
+    left: 0px;
+    background: linear-gradient(to right bottom, #fbdb89, #f48982);
+    opacity: .4;
+}
+
+.sidebarImageDiv {
+    position: relative;
+}
+
+.sidebarImageDiv img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.clickedImage {
+    width: 100%;
+    height: 100%;
+
+}
+
+.clickedImage::before {
+    content: "";
+    display: block;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    top: -30px;
+    left: 0px;
+    background-color: red;
+}
+
+.imageDetialer {
+    position: absolute;
+    bottom: -20%;
+    left: 40%;
+    transform: translate(-20%, -30%) skewY(-6deg);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    max-width: 40%;
+    max-height: 40%;
+    line-height: 2;
+    text-align: center;
+
+}
+
+.imageDetialer span {
+    -webkit-box-decoration-break: clone;
+    background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+    padding: 1rem 1rem;
+}
+
+@media only screen and (max-width: 61.25em) {
+
+    html {
+        font-size: 50%;
+    }
+
+    html {
+        box-sizing: border-box;
+        font-size: 62.5%;
+    }
+
+    .imageDetialer {
+        bottom: -10%;
+    }
+}
+
+.uil {
+    color: #f48982;
+}
+
+.bookMark {
+    color: white !important;
+    background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+}
+
+.servicesDiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 6% 0%;
+    margin-top: 13%;
+    font-size: 20px;
+}
+
+.servicesDiv div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+
+}
+
+.ingredients {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: black;
+    margin-top: 0px;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.ingredientsitems {
+    display: flex;
+    position: relative;
+}
+
+.ingregientInnerDiv {
+    display: flex;
+    margin-left: 30px;
+}
+
+.ingredientsitemschild {
+    text-align: left;
+}
+
+.howtocook {
+    position: absolute;
+    bottom: -123%;
+    left: 40%;
+    text-align: center;
+}
+
+.howtocook h3 {
+    color: #f48982;
+    margin-bottom: 2%;
+}
+
+.howtocook button {
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    margin-top: 3%;
+    background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+}
+
+.check {
+    position: absolute;
+    top: -10px;
+    left: 0px;
+}
+
+#loader {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    display: none;
+}
+
+#secondLoader {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 40%;
+    left: 60%;
+    display: none;
+}
+
+/* sppinner ok  */
+.progress {
+    position: relative;
+    display: inline-block;
+    width: 5em;
+    height: 5em;
+    margin: 0 .5em;
+    font-size: 12px;
+    text-indent: 999em;
+    overflow: hidden;
+    animation: spinner steps(80);
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(1turn);
+    }
+
+}
+
+.progress:before,
+.progress:after,
+.progress .innerdiv:before,
+.progress .innerdiv:after,
+.innerdiv .deepdiv:before,
+.innerdiv .deepdiv:after,
+.innerdiv .deepdiv div::before,
+.innerdiv .deepdiv div::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 2.25em;
+    width: .5em;
+    height: 1.7em;
+    border-radius: .2em;
+    background: #eee;
+    transform-origin: 50% 2.5em;
+}
+
+.progress:before {
+    background: linear-gradient(to right bottom, #fbdb89, #f48982);
+}
+
+.progress:after {
+    transform: rotate(45deg);
+    background: linear-gradient(to right bottom, #fbdb89, #f48982);
+}
+
+.progress .innerdiv:before {
+    transform: rotate(90deg);
+    background: linear-gradient(to right bottom, #fbdb89, #f48982);
+
+}
+
+.progress .innerdiv:after {
+    transform: rotate(135deg);
+    background: linear-gradient(to right bottom, #fbdb89, #f48982);
+}
+
+
+.progress .innerdiv .deepdiv:before {
+    transform: rotate(180deg);
+    background: linear-gradient(to right bottom, #fbdb89, #f48982);
+}
+
+.progress .innerdiv .deepdiv:after {
+    transform: rotate(225deg);
+    background: linear-gradient(to right bottom, #fbdb89, #f48982);
+}
+
+.innerdiv .deepdiv div:before {
+    transform: rotate(270deg);
+    background: linear-gradient(to right bottom, #fbdb89, #f48982);
+}
+
+.innerdiv .deepdiv div:after {
+    transform: rotate(315deg);
+    background: linear-gradient(to right bottom, #fbdb89, #f48982);
+}
+
+.Copyright {
+    color: #918581;
+    position: relative;
+    bottom: 100px;
+    left: 40px;
+    width: 30%;
+    font-size: 0.7rem;
+    padding: 10px;
+}
+
+.notFound{
+    position: relative;
+    top: 80px;
+    left: 40px;
+    width: 300px;
+    font-size: 17px;
+    display: flex;
+    justify-content: space-between;
+}
+.notFound li{
+    width: 30px;
+}
+.uil-exclamation-triangle{
+    font-size: 30px;
+    position: relative;
+    left: -10px;
+    top: -5px;
+}
