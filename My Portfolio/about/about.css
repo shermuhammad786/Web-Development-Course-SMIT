@@ -1,0 +1,53 @@
+.main{
+    
+    margin: 0px;
+    padding: 0%;
+    background-image: url(../Assest/download.jpeg);
+   
+    background-size: cover;
+
+}
+.main li{
+    display: inline-block;
+    margin: 10px;
+    margin-left: 300px;
+    
+    margin-top: 50px;
+    border-right: 3px solid white;
+    
+    
+}
+.main li a{
+    color: white;    
+    margin-right: 10px;
+   
+
+}
+.name{
+    font-variant: small-caps;
+    text-align: left;
+    margin-left: 20%;
+    font-size: 400%;
+    display: inline;    
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+img{
+    position: absolute;
+    right: 15%;
+}
+
+.about{
+    background-color: green;
+    padding: 1%;
+    
+}
+.abou{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: oblique;
+}
+.purpose{
+    background-color: green;
+    padding: 1px;
+    
+}
