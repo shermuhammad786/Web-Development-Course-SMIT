@@ -1,0 +1,3 @@
+install dotenv;
+install mongoose     
+mongodb+srv://sherabro141:<sherabro1100>@shermuhammad.itxipzc.mongodb.net/
