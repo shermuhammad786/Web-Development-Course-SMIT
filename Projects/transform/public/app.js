@@ -57,7 +57,4 @@ function start(){
     ball5.style.animationTimingFunction = "ease-in-out";
     ball5.style.animationDirection = "alternate";
     ball5.style.animationIterationCount = "infinite"
-
-
-
 }

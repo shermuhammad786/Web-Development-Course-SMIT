@@ -1,0 +1,199 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Product Cards</title>
+  <style>
+    /* Include the styles from the previous example */
+
+    .updateModal {
+      display: none; /* Initially hide the modal */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="product-card">
+
+    <div class="main_container_post">
+      <div class="post">
+        <div class="post__top">
+          <img class="user__avatar post__avatar" src="./car1.jpeg" />
+          <div class="post__topInfo d-flex justify-content-between  w-100">
+            <div>
+              <h3 id="userName">useer Name</h3>
+            <p>post time</p>
+            </div>
+
+            <div>
+              <div class="dropdown">
+                <button class="btn dropdown w-100" type="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <li class="lh-1 ms-3"></li>
+                  <li class="lh-1 ms-3"></li>
+                  <li class="lh-1 ms-3"></li>
+                </button>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item for-all-color" id="editPost" onclick="editPostHandler('${post.id}')">Edit Post</li>
+                  <li class="dropdown-item for-all-color" id="deletPost" onclick="deletPostHandler('${post.id}')">Delet Post</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="post__bottom">
+          <p id="postedText">post text</p>
+        </div>
+
+        <div class="post__image">
+          <img id="post_image"
+            src="./car1.jpeg" />
+        </div>
+
+        <div class="post__options">
+          <div class="post__option" onclick="likebtnHandler(this)">
+          <span class="fa fa-thumbs-up"></span>
+            <p onclick="likebtnHandler(this)">Like</p>
+          </div>
+
+          <div class="post__option">
+            <i class="uil uil-comment-alt"></i>
+            <p>Comment</p>
+          </div>
+
+          <div class="post__option">
+            <i class="uil uil-share"></i>
+            <p>Share</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<!--
+    <div class="action-dropdown">
+        <i class="fas fa-ellipsis-v three-dots"></i>
+        <div class="dropdown-content">
+          <a href="#" class="edit-button">Edit</a>
+          <a href="#" class="delete-button">Delete</a>
+        </div>
+      </div>
+  <img src="./car1.jpeg" alt="Product 1 Image" class="product-image">
+  <div class="product-info">
+    <h3 class="product-name">Product 1</h3>
+    <p class="product-price">$50.00</p>
+    <p class="product-rating">Rating: 4.5</p>
+    <p class="product-brand">Brand: XYZ</p>
+   
+  </div>
+</div>
+
+<div class="product-card">
+    
+    <div class="action-dropdown">
+        <i class="fas fa-ellipsis-v three-dots"></i>
+    <div class="dropdown-content">
+        <a href="#" class="edit-button">Edit</a>
+        <a href="#" class="delete-button">Delete</a>
+      </div>
+      </div>
+
+  <img src="./car1.jpeg" alt="Product 2 Image" class="product-image">
+  <div class="product-info">
+    <h3 class="product-name">Product 2</h3>
+    <p class="product-price">$30.00</p>
+    <p class="product-rating">Rating: 3.8</p>
+    <p class="product-brand">Brand: ABC</p>
+    
+      
+
+  </div> -->
+</div>
+
+
+<!-- 
+
+<button id="openUpdateModalButton">Open Update Modal</button>
+
+<div class="updateModal" id="updateModal">
+  <form id="updateForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" required>
+    <br>
+
+    <label for="rating">Rating:</label>
+    <input type="number" id="rating" name="rating" required>
+    <br>
+
+    <label for="brand">Brand:</label>
+    <input type="text" id="brand" name="brand" required>
+    <br>
+
+    <button type="submit">Update Product</button>
+  </form>
+  <button id="closeUpdateModalButton">Close</button>
+</div>
+
+<script>
+  document.getElementById('openUpdateModalButton').addEventListener('click', function() {
+    document.getElementById('updateModal').style.display = 'block';
+  });
+
+  document.getElementById('closeUpdateModalButton').addEventListener('click', function() {
+    document.getElementById('updateModal').style.display = 'none';
+  });
+</script>
+
+<script>
+    document.getElementById('updateForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const id = "65b5631986db869e17e5046c"
+        const name = document.getElementById('name').value;
+        const price = document.getElementById('price').value;
+        const rating = document.getElementById('rating').value;
+        const brand = document.getElementById('brand').value;
+
+        try {
+            const response = await fetch(`http://localhost:9000/products/updateProduct/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, price, rating, brand }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert("product updated successfully")
+                console.log('Product updated successfully:', data);
+            } else {
+                console.error('Product update failed:', data.message);
+            }
+        } catch (error) {
+            console.error('Error updating product:', error.message);
+        }
+    });
+</script> -->
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+.main{
+  display: flex;
+  justify-content: space-around;
+}
+h1{
+  color: red;
+ 
+}
+h2{
+  color: blue;
+}
+h3{
+  color: green;
+}

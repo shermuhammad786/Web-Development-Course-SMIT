@@ -1,0 +1,15 @@
+span {
+    margin-top: 10px;
+}
+
+h1 {
+    padding: 10px;
+}
+
+.heading {
+    color: #efcc00;
+    /* color: #dec165; */
+    /* color: #f1e0a5; */
+    display: flex;
+    justify-content: center;
+}
