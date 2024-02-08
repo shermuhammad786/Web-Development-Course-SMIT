@@ -1,0 +1,13 @@
+.numbers {
+    display: flex;
+    justify-content: space-evenly;
+    width: 500px;
+}
+
+.numbers p {
+    text-align: center;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
