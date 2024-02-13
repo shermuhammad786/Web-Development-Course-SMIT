@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+.dflex {
+    display: flex;
+}
+
+
+.justCenter {
+    justify-content: center;
+}
+
+.alignCenter {
+    align-items: center;
+}
+
+.alingItem {
+    align-items: flex-end;
+}
+
+.justS_B {
+    justify-content: space-between;
+}
+
+.justS_E {
+    justify-content: space-evenly;
+}
+
+.justS_A {
+    justify-content: space-around;
+}
+
+.fdc {
+    flex-direction: column;
+}
+
+.fw {
+    flex-wrap: wrap;
+}
+
+.border {
+    border: 2px solid red;
+}
+
+.gap {
+    gap: 5px;
+}

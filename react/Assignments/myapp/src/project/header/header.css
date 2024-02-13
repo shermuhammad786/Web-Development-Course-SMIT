@@ -1,0 +1,34 @@
+.logo {
+    min-width: 100px;
+}
+
+.headerDiv {
+    width: 100%;
+    height: 150px;
+    background-color: #F19720;
+    /* color: #6f4109; */
+}
+
+.headerSec2 {
+    height: 80px;
+    background-color: #DF6B1B;
+    gap: 10px;
+}
+
+.headerSec2 div input {
+    margin: 0px 10px;
+}
+
+.itemsQuantity,
+.additems {
+    padding: 5px;
+    border-radius: 20px;
+    background-color: #FDE7AA;
+    border: none;
+    outline: none;
+}
+
+.additems {
+    background-color: #67C1A3;
+    padding: 7px 20px;
+}

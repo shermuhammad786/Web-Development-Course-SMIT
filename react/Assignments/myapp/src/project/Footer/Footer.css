@@ -1,0 +1,10 @@
+.footer {
+    height: 7.2vh;
+}
+.buttons {
+    padding: 5px;
+    border-radius: 20px;
+    background-color: #FDE7AA;
+    border: none;
+    outline: none;
+}
