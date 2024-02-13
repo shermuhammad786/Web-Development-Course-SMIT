@@ -1,0 +1,39 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #efefef;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  margin: 10px;
+  background-color: white;
+}
+
+.cards .card:hover {
+  border: 1px solid silver;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.cards .card p {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  font-family: cursive;
+  border-radius: 10px;
+}

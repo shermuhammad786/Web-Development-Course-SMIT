@@ -11,13 +11,9 @@ export default function Items({ items, setItems }) {
 
   // Sort items based on the 'order' property
   const sortedItems = [...items].sort((a, b) => a.order - b.order);
+  // setItems(sortedItems)
 
-  // useEffect(() => {
-  //   // Sort items by default when the component mounts
-  //   const itemsWithOrder = items.map((item, index) => ({ ...item, order: index }));
-  //   setItems([...itemsWithOrder]);
-  // }, [items, setItems]);
-
+  // console.log(sortedItems, "sorted items ....")
   const removeItem = (e) => {
     console.log(e.parentNode)
   }
