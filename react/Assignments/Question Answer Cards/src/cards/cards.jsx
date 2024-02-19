@@ -38,7 +38,11 @@ export default function Cards() {
             <div className="cards">
                 {questionAnswer.map(e => (
                     <div className="card">
-                        <p style={{ backgroundColor: ans === e.answer ? "red" : "white", display: 'flex', alignItems: "center", justifyContent: "center", textAlign: "center" }} onClick={() => displayAnswer(e.answer, e.question)}>{ans === e.answer ? ans : e.question}</p>
+                        <p
+                            style={{ backgroundColor: ans === e.answer ? "red" : "white", display: 'flex', alignItems: "center", justifyContent: "center", textAlign: "center" }}
+                            onClick={() => displayAnswer(e.answer, e.question)}>
+                            {ans === e.answer ? ans : e.question}
+                        </p>
                     </div>
                 ))}
             </div>
