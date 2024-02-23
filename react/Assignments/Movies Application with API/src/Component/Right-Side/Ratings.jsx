@@ -27,6 +27,7 @@ export function FilmIcon(props) {
 
 
 export function StarIcon(props) {
+
     return (
         <svg
             {...props}
