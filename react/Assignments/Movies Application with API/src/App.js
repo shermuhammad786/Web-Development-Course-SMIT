@@ -31,8 +31,6 @@ function App() {
         }
         setLoader(true)
         const response = await fetch(`http://www.omdbapi.com/?s=${movies}=&apikey=1662cfd4`);
-        // http://img.omdbapi.com/?apikey=[1662cfd4]&
-        //  https://www.omdbapi.com/?apikey=1662cfd4&i=tt0816692
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
