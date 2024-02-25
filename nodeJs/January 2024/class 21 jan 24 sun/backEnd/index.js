@@ -3,6 +3,7 @@
 import express from 'express';
 import authRoues from './routes/authRoutes.js';
 import dbConnection from './utils/config.js';
+
 // import dotenv from 'dotenv'
 
 
@@ -18,6 +19,7 @@ dbConnection()
 // })
 // =======
 app.use("/auth", authRoues)
+
 // >>>>>>> 4851c22ba8712bf7dff5a79bded7d80281d4a5c2
 
 

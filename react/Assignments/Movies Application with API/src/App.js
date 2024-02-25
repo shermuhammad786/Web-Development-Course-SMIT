@@ -28,7 +28,7 @@ function App() {
       try {
         if (movies.trim() === "") {
           return;
-        } console.log("loader start")
+        }
         setLoader(true)
         const response = await fetch(`http://www.omdbapi.com/?s=${movies}=&apikey=1662cfd4`);
         // http://img.omdbapi.com/?apikey=[1662cfd4]&
@@ -40,10 +40,8 @@ function App() {
           const data = await response.json();
 
           setData(data);
-          console.log("loader closed...")
+
           setLoader(() => data.Response ? false : true)
-          // setLoader(() => data.Response === "False" ? "No Such Data" : true)
-          console.log(data)
 
         }
       } catch (error) {
