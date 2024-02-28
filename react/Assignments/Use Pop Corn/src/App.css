@@ -1,0 +1,25 @@
+* {
+  padding: 0px !important;
+  margin: 0px !important;
+  box-sizing: border-box;
+}
+
+/* .scrollbarHidding {
+  overflow: hidden;
+  border: 2px solid red;
+} */
+
+.scrollbarHidding {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.scrollbarHidding::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar for WebKit-based browsers (Chrome, Safari, Opera) */
+}
+
+.scrollbarHidding {
+  scrollbar-width: none;
+  /* Remove scrollbar for Firefox */
+}

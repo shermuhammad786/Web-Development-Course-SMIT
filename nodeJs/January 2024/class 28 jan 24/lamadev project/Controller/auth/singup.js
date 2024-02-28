@@ -2,21 +2,32 @@ import mongoose from "mongoose";
 
 import { SingUpUserSchema } from "../../Models/schema/authSchema.js";
 import bcrypt from "bcrypt";
+// import { status } from "express/lib/response.js";
 
+// USER SINGUP
 export const singupController = async (req, res) => {
     try {
         const { username, email, password, desc } = req.body;
 
-        // Check if the user already exists
+        // check if Username is already exists
+        const existingUserName = await SingUpUserSchema.findOne({ username: username })
+        if (existingUserName) {
+            return res.json({
+                status: false,
+                message: "Username is already exists",
+            })
+        }
+
+        // Check if the user Email already exists
         const existingUser = await SingUpUserSchema.findOne({ email: email });
 
         if (existingUser) {
             return res.json({
                 status: false,
-                message: "User already exists",
+                message: "Email is  already exists",
             });
         }
-
+       
         // User does not exist, proceed with signup
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);

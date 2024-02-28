@@ -3,6 +3,9 @@ import LightSide from './Component/LeftSide/LeftSide';
 import Header from './Component/Header/Header';
 import RightSide from './Component/Right-Side/RightSide';
 import { useEffect, useState } from 'react';
+// import envFile from "dotenv";
+// envFile.config();
+// console.log(process.env, "env file ")
 
 
 
@@ -20,7 +23,7 @@ function App() {
   const [loader, setLoader] = useState(false);
   const [loaderD, setLoaderD] = useState(false);
 
-
+  // console.log(process.env, "====>>> env")
 
   // fetching Api to Seach movies
   useEffect(() => {
@@ -97,8 +100,6 @@ function App() {
             setLoaderD={setLoaderD}
 
           />
-
-
         </main>
       </div>
     </div>

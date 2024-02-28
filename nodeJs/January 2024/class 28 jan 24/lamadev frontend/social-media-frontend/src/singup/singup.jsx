@@ -3,9 +3,14 @@ import React, { useState } from 'react';
 import './signup.css';
 import { useNavigate } from 'react-router-dom';
 import { Email, Lock, Person } from '@mui/icons-material';
+
+import { Login } from '../login/login';
+
 export function SignUp() {
-    const navigate = useNavigate(); 
-    
+
+    const navigate = useNavigate();
+    const [errors, setErrors] = useState('')
+
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -13,6 +18,7 @@ export function SignUp() {
     });
 
     const handleChange = (e) => {
+        setErrors("")
         const { name, value } = e.target;
         setFormData((prevData) => ({
             ...prevData,
@@ -23,9 +29,13 @@ export function SignUp() {
     const handleSubmit = async () => {
         try {
             const response = await axios.post('http://localhost:8000/auth/register', formData);
-            if (response.status) {
-                alert(response.data.message);
-                navigate('/login');
+            console.log(response)
+            if (response.data.status) {
+                alert(response.data.message)
+                navigate(Login)
+            } else {
+                let firstWord = response.data.message.split(' ')[0];
+                setErrors(firstWord)
             }
         } catch (error) {
             alert(error.message);
@@ -43,6 +53,7 @@ export function SignUp() {
                     onChange={handleChange}
                     className="SignUpInput"
                 />
+                <p className='showError' >{errors === "Username" ? "Username is already exists" : ""} </p>
                 <Email />
                 <input
                     type="text"
@@ -52,6 +63,7 @@ export function SignUp() {
                     onChange={handleChange}
                     className="SignUpInput"
                 />
+                <p className='showError' >{errors === "Email" ? "Email is already exists" : ""} </p>
                 <Lock />
                 <input
                     type="text"
