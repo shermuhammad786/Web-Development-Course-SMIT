@@ -28,8 +28,9 @@ const WeatherApp = () => {
             const apiUrl = `https://api.weatherapi.com/v1/current.json?key=481b4625ad7549b8b84145328241002&q=${city}&aqi=yes`;
 
             const response = await axios.get(apiUrl);
-            console.log(response, "data")
+            console.log(response, "==>>> data")
             setWeather(response.data);
+
         } catch (error) {
             console.error('Error fetching weather data:', error);
         } finally {
