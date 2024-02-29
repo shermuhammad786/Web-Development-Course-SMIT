@@ -1,36 +1,20 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
-import { useSpring, animated } from 'react-spring';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  font-family: 'Arial', sans-serif;
-`;
+import windIcon from "./windiamge.png"
 
-const Card = styled(animated.div)`
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+import Sunny from "./weatherVideos/sunny.mp4"
+import Snow from "./weatherVideos/snow.mp4"
+import Rain from "./weatherVideos/rain.mp4"
+import Clouds from "./weatherVideos/clouds.mp4"
+import Mist from "./weatherVideos/Mist.mp4"
+import Partly from "./weatherVideos/PratlyClouds.mp4"
+import LightRain from "./weatherVideos/LightRain.mp4"
+import Fog from "./weatherVideos/Fog.mp4"
+import byDfault from "./weatherVideos/default.mp4"
+import lightDrizzle from "./weatherVideos/Lightdrizzle.mp4"
 
-  &.warm {
-    background-image: url('path/to/summer-image.jpg'); // Replace with your summer image path
-    color: #fff; // Adjust text color for better visibility on the light background
-  }
 
-  &.cold {
-    background-image: url('path/to/winter-image.jpg'); // Replace with your winter image path
-    color: #000; // Adjust text color for better visibility on the dark background
-  }
-`;
 
 
 const WeatherApp = () => {
@@ -41,13 +25,11 @@ const WeatherApp = () => {
     const fetchWeather = async () => {
         setLoading(true);
         try {
-            // const apiKey = '3b9db5aa9a4eaff3abec372354ce8d96'; // Replace with your API key
-            // const apiUrl = `https://api.weatherapi.com/v1/current.json?key=481b4625ad7549b8b84145328241002&q=${city}&aqi=yes`;
-            const apiUrl = "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={3b9db5aa9a4eaff3abec372354ce8d96}"
+            const apiUrl = `https://api.weatherapi.com/v1/current.json?key=481b4625ad7549b8b84145328241002&q=${city}&aqi=yes`;
 
             const response = await axios.get(apiUrl);
+            console.log(response, "data")
             setWeather(response.data);
-            console.log(weather, "weather details ===>>>.")
         } catch (error) {
             console.error('Error fetching weather data:', error);
         } finally {
@@ -55,39 +37,58 @@ const WeatherApp = () => {
         }
     };
 
-    const fadeIn = useSpring({
-        opacity: 1,
-        from: { opacity: 0 },
-        config: { duration: 500 },
-    });
+    const displayVideos = weather?.current?.condition?.text;
 
 
-    // const weatherCondition = weather && weather.weather[0].main.toLowerCase();
-    // const isWarmWeather = weatherCondition === 'clear' || weatherCondition === 'clouds';
 
     return (
-        <Container>
-            <Card style={fadeIn}>
-                <h2>Weather App</h2>
-                <input
-                    type="text"
-                    placeholder="Enter city"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                />
-                <button onClick={fetchWeather} disabled={loading}>
-                    {loading ? 'Loading...' : 'Get Weather'}
-                </button>
-                {weather && (
-                    <div>
-                        <h3>{weather.location.name}, {weather.location.country}</h3>
-                        <p>{weather.current.condition.text}</p>
-                        <p>Temperature: {weather.current.temp_c} °C</p>
-                        <img src={weather.current.condition.icon} alt="" />
+        <div className='container'>
+
+            <video src={
+                displayVideos === "Sunny" ? Sunny
+                    : displayVideos === "Patchy rain nearby" ? Rain
+                        : displayVideos === "Overcast" ? Clouds
+                            : displayVideos === "Cloudy " ? Clouds
+                                : displayVideos === "Clear" ? Sunny
+                                    : displayVideos === "Light rain shower" ? LightRain
+                                        : displayVideos === "Mist" ? Mist
+                                            : displayVideos === "Fog" ? Fog
+                                                : displayVideos === "Heavy snow" ? Snow
+                                                    : displayVideos === "Partly Cloudy " ? Partly
+                                                        : displayVideos === "Partly cloudy" ? Partly
+                                                            : displayVideos === "Partly Cloudy" ? Partly
+                                                                : displayVideos === "Light drizzle" ? lightDrizzle
+                                                                    : displayVideos === "Moderate rain at times" ? Rain
+                                                                        : byDfault
+            } autoPlay loop muted></video>
+
+
+            <div className='mainCard'>
+                <div className={"card"}>
+                    <div className='header'>
+                        <h1 className='weatherApp'>Weather App</h1>
+                        <input
+                            type="text"
+                            placeholder="Enter City Name"
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                        />
+                        <button onClick={fetchWeather} disabled={loading}>
+                            {loading ? 'Loading...' : 'Get Weather'}
+                        </button>
                     </div>
-                )}
-            </Card>
-        </Container>
+                    {weather && (
+                        <div className='details'>
+                            <h2>{weather.location.name}, {weather.location.country}</h2>
+                            <p>{weather.current.condition.text}</p>
+                            <p>Temperature: {weather.current.temp_c} °C</p>
+                            <img width={"100px"} src={weather.current.condition.icon} alt="" />
+                            <p><img src={windIcon} width={"50px"} alt="slfdg" /> mph {weather.current.wind_mph}</p>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div >
     );
 };
 
