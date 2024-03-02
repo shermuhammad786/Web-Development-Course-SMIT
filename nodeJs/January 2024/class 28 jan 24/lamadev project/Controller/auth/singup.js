@@ -27,7 +27,7 @@ export const singupController = async (req, res) => {
                 message: "Email is  already exists",
             });
         }
-       
+
         // User does not exist, proceed with signup
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
@@ -155,8 +155,11 @@ export const getUser = async (req, res) => {
 export const followings = async (req, res) => {
     try {
         const id = req.params._id;
-        const sher = await SingUpUserSchema.findById(id);
-        const faiz = await SingUpUserSchema.findById(req.body.faizId);
+        const jisKoFollowKiya = await SingUpUserSchema.findById(id);
+        console.log(jisKoFollowKiya, "===>>>> jis ko follow kiya");
+
+        const jisNeFollowKiya = await SingUpUserSchema.findById(req.body.faizId);
+        console.log(jisNeFollowKiya, "===>>>> jis ne follow kiya");
 
         if (id === req.body.faizId) {
             return res.status(400).json({
@@ -165,19 +168,19 @@ export const followings = async (req, res) => {
             });
         }
 
-        if (!sher.followers.includes(req.body.faizId)) {
-            await sher.updateOne({ $push: { followers: req.body.faizId } });
-            await faiz.updateOne({ $push: { followings: id } });
+        if (!jisKoFollowKiya.followers.includes(req.body.faizId)) {
+            await jisKoFollowKiya.updateOne({ $push: { followers: req.body.faizId } });
+            await jisNeFollowKiya.updateOne({ $push: { followings: id } });
 
             return res.status(200).json({
                 status: true,
-                user: sher,
-                message: "Faiz followed Sher successfully",
+                user: jisKoFollowKiya,
+                message: jisNeFollowKiya.username + " ne follow kiya hai " + jisKoFollowKiya.username,
             });
         } else {
             return res.status(400).json({
                 status: false,
-                message: "You already follow Sher",
+                message: jisNeFollowKiya.username + "You already follow " + jisKoFollowKiya.username,
             });
         }
     } catch (error) {
