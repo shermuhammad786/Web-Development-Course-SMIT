@@ -1,15 +1,9 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/3rsVQp12jk9
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
-import Link from "@mui/icons-material"
-import { CardTitle, CardHeader, CardContent, Card } from "@mui/icons-material"
+import React from 'react'
+import Link from "@mui/material/Link"
 
-export default function Sidebar() {
-    return (
-        <div className="flex flex-col min-h-screen w-full">
-            <div className="grid items-start gap-2 px-4 text-sm font-medium">
+export default function LeftSideBar() {
+  return (
+    <div className="grid items-start gap-2 px-4 text-sm font-medium">
                 <Link
                     className="flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
                     href="#"
@@ -81,69 +75,9 @@ export default function Sidebar() {
                     Courses
                 </Link>
             </div>
-            <div className="mt-auto p-4">
-                <Card>
-                    <CardHeader className="pb-4">
-                        <CardTitle>Active Users</CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex flex-col gap-4">
-                        <div className="flex items-center gap-2">
-                            <img
-                                alt="Avatar"
-                                className="rounded-full"
-                                height="32"
-                                src="/placeholder.svg"
-                                style={{
-                                    aspectRatio: "32/32",
-                                    objectFit: "cover",
-                                }}
-                                width="32"
-                            />
-                            <div className="flex flex-col">
-                                <span className="font-medium">Alice</span>
-                                <span className="text-sm text-gray-500 dark:text-gray-400">@alice</span>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <img
-                                alt="Avatar"
-                                className="rounded-full"
-                                height="32"
-                                src="/placeholder.svg"
-                                style={{
-                                    aspectRatio: "32/32",
-                                    objectFit: "cover",
-                                }}
-                                width="32"
-                            />
-                            <div className="flex flex-col">
-                                <span className="font-medium">Bob</span>
-                                <span className="text-sm text-gray-500 dark:text-gray-400">@bob</span>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <img
-                                alt="Avatar"
-                                className="rounded-full"
-                                height="32"
-                                src="/placeholder.svg"
-                                style={{
-                                    aspectRatio: "32/32",
-                                    objectFit: "cover",
-                                }}
-                                width="32"
-                            />
-                            <div className="flex flex-col">
-                                <span className="font-medium">Charlie</span>
-                                <span className="text-sm text-gray-500 dark:text-gray-400">@charlie</span>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-            </div>
-        </div>
-    )
+  )
 }
+
 
 function BookIcon(props) {
     return (

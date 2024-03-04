@@ -7,11 +7,12 @@
 import { Input } from "@mui/material"
 import { Button } from "@mui/material"
 import { Person, Message } from "@mui/icons-material";
+import myImage from "../../../Components//whatsonMin/sherimg.jpg"
 // import Message from '@mui/icons-material/Message';
 
 export default function Navbar() {
     return (
-        <header className="bg-indigo-600 flex items-center h-16 px-4 border-b bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-850">
+        <header className="bg-indigo-600 flex items-center justify-center h-16 w-full px-4 border-b bg-gray-100 dark:bg-gray-800 border-gray-200 dark:border-gray-850">
             {/* <Link className="mr-4" href="#"> */}
             <MountainIcon className="h-6 w-6" />
             <span className="sr-only">Acme Inc</span>
@@ -44,7 +45,7 @@ export default function Navbar() {
                         alt="Avatar"
                         className="rounded-full"
                         height="32"
-                        src="/placeholder.svg"
+                        src={myImage}
                         style={{
                             aspectRatio: "32/32",
                             objectFit: "cover",
