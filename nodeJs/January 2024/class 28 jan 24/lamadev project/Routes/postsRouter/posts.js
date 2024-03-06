@@ -1,5 +1,5 @@
 import express from "express";
-import { createPost, deletePost, getPost, getPosts, likePost, updatePost } from "../../Controller/posts/postsController.js";
+import { createPost, deletePost, getAllPosts, getPost, getPosts, likePost, updatePost } from "../../Controller/posts/postsController.js";
 const postRouter = express.Router();
 
 
@@ -20,5 +20,9 @@ postRouter.get("/get/post/:_id", getPost)
 
 //GET ALL POSTS   OR GET TIMELINE POSTS
 postRouter.get("/get/posts" , getPosts)
+
+//GET ALL POSTS
+postRouter.get("/get/allposts" , getAllPosts);
+
 
 export { postRouter }

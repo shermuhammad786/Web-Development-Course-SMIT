@@ -221,3 +221,22 @@ export const getPosts = async (req, res) => {
         });
     }
 };
+
+// GET ALL USERS POSTS
+export const getAllPosts = async (req, res) => {
+    try {
+        const allPosts = await postSchema.find()
+        res.json({
+            status:true,
+            message:"getting all posts successfull",
+            allPosts:allPosts
+        })
+    } catch (error) {
+        res.json({
+            status:false,
+            message:"internal server error",
+            error:error.message
+        })
+
+    }
+}

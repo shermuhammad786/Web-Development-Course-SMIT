@@ -3,19 +3,42 @@ import "./app.css"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import HomePage from "./Pages/HomePage/HomePage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
-import { SignUp } from "./Pages/SignUpPage/SignUp";
-import { Login } from "./Pages/LoginPage/Login";
+import { SignUpForm } from "./Pages/SignUpPage/SignUp"
+import { LoginPage } from "./Pages/LoginPage/Login";
+import { Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+
 
 function App() {
+
+
+  const [userProfilePic, setUserProfilePic] = useState()
+  useEffect(() => {
+    const gettingData = async () => {
+      const { data } = await axios.get(`http://localhost:8000/auth/user/${localStorage.getItem("user")}`)
+      setUserProfilePic(data.user)
+      // console.log(data.user, "===>>> get logged in user")
+    }
+    gettingData()
+  }, [])
   return (
     <div className="App">
-      {/* <SignUp /> */}
-      {/* <HomePage /> */}
-      {/* <ProfilePage /> */}
-      {/* <SignUp /> */}
-      <Login />
+
+      <Routes>
+        <Route path="/" element={<SignUpForm />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpForm />} />
+        <Route path="/home" element={<HomePage userProfilePic={userProfilePic} />} />
+        <Route path="/profilepage" element={<ProfilePage
+          userProfilePic={userProfilePic}
+          setUserProfilePic={setUserProfilePic}
+        />} />
+      </Routes>
     </div>
   );
 }
 
 export default App;
+

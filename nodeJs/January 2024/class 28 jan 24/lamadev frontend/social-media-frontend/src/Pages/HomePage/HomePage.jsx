@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './navabr/Navbar'
 import Sidebar from './LeftSide/Sidebar'
 import Center from './Center/Center'
 import RightBar from './RightBar/RightBar'
-export default function HomePage() {
+import { useNavigate } from "react-router-dom"
+
+
+export default function HomePage({ userProfilePic }) {
+
+    // console.log(userProfilePic, "user proile pioc")
+    const navigate = useNavigate();
+    useEffect(() => {
+        const userInLocal = localStorage.getItem("user")
+        if (userInLocal === "false") {
+            navigate("/login");
+        } else {
+            navigate("/home")
+        }
+    }, [navigate])
     return (
         <>
             <div>
-                <Navbar />
+                <Navbar userProfilePic={userProfilePic} />
             </div>
             <div className='flex justify-between mt-8'>
                 <div className='w-2/12'>
@@ -15,7 +29,7 @@ export default function HomePage() {
                 </div>
 
                 <div className='w-2/5'>
-                    <Center />
+                    <Center userProfilePic={userProfilePic} />
                 </div>
 
                 <div className='w-4/12'>

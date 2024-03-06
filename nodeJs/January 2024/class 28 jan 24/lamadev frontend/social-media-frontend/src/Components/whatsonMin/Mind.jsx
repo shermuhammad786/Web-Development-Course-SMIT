@@ -11,12 +11,12 @@ import Button from '@mui/material/Button';
 import { WhatsonMin } from './Profile/Profile';
 
 
-export default function Mind() {
+export default function Mind({userProfilePic}) {
     return (
         <Paper elevation={8} >
             <div className='w-196 flex flex-col items-start gap-10 shadow-lg p-4 rounded text-xs'>
                 <div className='flex items-center justify-center gap-8'>
-                    <div><WhatsonMin /></div>
+                    <div><WhatsonMin userProfilePic={userProfilePic} /></div>
                     <div><BasicTextFields /></div>
                 </div>
                 <div className='flex gap-3'>

@@ -23,7 +23,7 @@ app.use(helmet())
 
 //router
 app.use("/auth", authRouter)
-app.use("/posts"  , postRouter)
+app.use("/posts", postRouter)
 
 
 const port = process.env.PORT;

@@ -1,13 +1,48 @@
-import React from 'react'
-// import HomePage from '../HomePage/HomePage'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../HomePage/navabr/Navbar'
 import Sidebar from '../HomePage/LeftSide/Sidebar'
 import Center from '../HomePage/Center/Center'
-import RightBar from '../HomePage/RightBar/RightBar'
 import ProfilePageRightBar from '../../Components/ProfilePageRightBar'
-// import { ProfilePageCoverImage } from '../../Components/whatsonMin/Profile/Profile'
+import axios from "axios";
+import { uploadFile } from '../../FireBase/Functions'
 
-export default function ProfilePage() {
+export default function ProfilePage({ userProfilePic }) {
+    // useEffect(() => {
+    //     const updateProfileImage = axios.put(`http://localhost:8000/auth/${localStorage.getItem("user")}` , )
+    // }, [])
+    // console.log(userProfilePic, "====>>>>>>>. userprofilePic profilepage")
+    const [image, setImage] = useState();
+
+    const imageHandler = async (e) => {
+        try {
+            const file = e.target.files[0];
+
+            if (file) {
+                const profilePictureName = `${new Date().getTime()}-${file.name}`;
+
+                try {
+                    const uploadingFile = await uploadFile(file, profilePictureName);
+                    // console.log(uploadingFile.downloadURL, "=======>>>>>... uploading file");
+                    if (uploadingFile.status) {
+                        const updateImage = {
+                            profilePicture: uploadingFile.downloadURL
+                        }
+
+                        const updateProfileImage = await axios.put(`http://localhost:8000/auth/update/65e6fd0f3b8fb2ba9c03a321`,
+                            updateImage,
+                            { new: true }
+                        );
+
+                        // console.log(updateProfileImage.data, "update profile image profilepage");
+                    }
+                } catch (error) {
+                    console.error("Error uploading file:", error.message);
+                }
+            }
+        } catch (error) {
+            console.error('Error updating profile image:', error);
+        }
+    };
     return (
         <>
             <div>
@@ -18,29 +53,26 @@ export default function ProfilePage() {
                     <Sidebar />
                 </div>
 
-
-
                 <div>
                     <div>
                         <div className='h-96 relative rounded' style={{ backgroundImage: `url(../assests/post4.jpeg)`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
-                            <div style={{ bottom: "-15%", left: "40%", }} className='absolute bottom-0'>
-                                <img className='h-52' width={"200px"} src="assests/sherimg.jpg" alt="" style={{ borderRadius: "50%" }} />
+                            <div style={{ bottom: "-15%", left: "40%", width: "200px" }} className='absolute h-52'>
+                                <img className='h-full' width={"100%"} src={userProfilePic?.profilePicture === "" ? "assests/userProfile.png" : userProfilePic?.profilePicture} alt="" style={{ borderRadius: "50%" }} />
+                                <input type="file" accept="image/*" onChange={imageHandler} />
                             </div>
                         </div>
                     </div>
 
                     <div className='flex justify-around mt-32'>
                         <div className='w-2/5'>
-                            <Center />
+                            <Center userProfilePic={userProfilePic} />
                         </div>
 
                         <div className='w-4/12'>
-                            {/* <RightBar /> */}
                             <ProfilePageRightBar />
                         </div>
                     </div>
                 </div>
-
 
             </div>
         </>

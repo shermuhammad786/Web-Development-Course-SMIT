@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 
 import { SingUpUserSchema } from "../../Models/schema/authSchema.js";
 import bcrypt from "bcrypt";
+import express from "express"
+
 // import { status } from "express/lib/response.js";
 
 // USER SINGUP
@@ -17,6 +19,7 @@ export const singupController = async (req, res) => {
                 message: "Username is already exists",
             })
         }
+
 
         // Check if the user Email already exists
         const existingUser = await SingUpUserSchema.findOne({ email: email });
@@ -43,7 +46,7 @@ export const singupController = async (req, res) => {
 
         res.json({
             status: true,
-            message: "User signed up successfully",
+            message: "Singup Scusseccfully Deiverting You to LoginPage",
             user: user
         });
     } catch (error) {
@@ -55,11 +58,60 @@ export const singupController = async (req, res) => {
     }
 };
 
+//LOGIN USER
+export const loginHanlder = async (req, res) => {
+    try {
+        const { password, email } = req.body
+
+
+        const findingUser = await SingUpUserSchema.findOne({ email: email });
+        if (findingUser) {
+            const comparePassword = await bcrypt.compare(password, findingUser.password)
+            console.log(comparePassword, "===>>> compare passwerod")
+            if (comparePassword) {
+                res.json({
+                    status: true,
+                    message: "Logged In Successfully Diverting You to Home Page",
+                    user: findingUser
+                })
+            } else {
+                res.json({
+                    status: false,
+                    message: "Invalid Credentials",
+                    user: findingUser
+                })
+
+            }
+        } else {
+            res.json({
+                status: false,
+                message: "User Not Found",
+                user: findingUser
+            })
+        }
+
+    } catch (error) {
+        console.log(error, "error , ==>>> ")
+        res.json({
+            status: false,
+            message: "Internal Server Error",
+            error: error.message
+
+
+        })
+    }
+}
+
 //  UPDATE USER
 export const updateUserController = async (req, res) => {
     try {
-        const { email, username, password } = req.body;
+        const { username, email, profilePicture, password } = req.body;
         const _id = req.params._id;
+
+        // if (!req.files || Object.keys(req.files).length === 0) {
+        //     return res.status(400).json({ status: false, message: 'No file uploaded' });
+        // }
+
 
         // Ensure that the provided _id is a valid ObjectId
         if (!mongoose.Types.ObjectId.isValid(_id)) {
@@ -69,23 +121,34 @@ export const updateUserController = async (req, res) => {
             });
         }
 
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
         const updateUser = {
             email: email,
             username: username,
-            password: hashedPassword
+            profilePicture:profilePicture
         };
 
-        const updatedUser = await SingUpUserSchema.findByIdAndUpdate(_id, {
-            $set: req.body
-        });
+        // Check if the password is provided before hashing it
+        if (password) {
+            const salt = await bcrypt.genSalt(10);
+            const hashedPassword = await bcrypt.hash(password, salt);
+            updateUser.password = hashedPassword;
+        }
+
+        // console.log('_id:', _id);
+        // console.log('updateUser:', updateUser);
+        const updatedUser = await SingUpUserSchema.findByIdAndUpdate(_id, updateUser,
+            { new: true }
+        );
+        console.log('updatedUser:', updatedUser);
+
+
 
         if (updatedUser) {
             res.json({
                 status: true,
                 message: "User Updated Successfully",
                 user: updatedUser,
+
             });
         } else {
             res.status(404).json({
@@ -93,8 +156,9 @@ export const updateUserController = async (req, res) => {
                 message: "User not found or not updated",
             });
         }
+        console.log(req.body)
     } catch (error) {
-        console.error(error.message);
+        console.error(error);
         res.status(500).json({
             status: false,
             message: "Internal server error",
@@ -102,6 +166,7 @@ export const updateUserController = async (req, res) => {
         });
     }
 };
+
 
 //  DELETE USER
 export const deleteUserController = async (req, res) => {

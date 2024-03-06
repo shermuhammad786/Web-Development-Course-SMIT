@@ -1,48 +1,85 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
+import "./login.css"
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-export function Login() {
+
+export function LoginPage() {
+    const navigate = useNavigate()
+
+
+
+
+
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    useEffect(() => {
+        const getUserFromLocalStorage = localStorage.getItem("user");
+        console.log(typeof (getUserFromLocalStorage), "loacastoreate")
+        if (getUserFromLocalStorage === "false") {
+            navigate("/login")
+        } else {
+            navigate("/home")
+        }
+
+    }, [])
+
+
+    const LoginHanler = async () => {
+        if (!email || !password) return alert("Please Fill All The Fields")
+
+        try {
+            const loginUser = {
+                email: email,
+                password: password,
+            }
+            const Login_API = "http://localhost:8000/auth/login";
+            const { data } = await axios.post(Login_API, loginUser)
+            if (data.status) {
+                localStorage.setItem("user", data.user._id)
+                alert(data.message)
+                navigate("/home")
+            } else {
+                alert(data.message)
+            }
+            // console.log(data, "===????  data")
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+    const signUpPage = () => {
+        navigate("/signup")
+    }
     return (
-        <div className='bdr w-96'>
-            <form>
-                <h3>Sign In</h3>
-                <div className="mb-3">
-                    <label>Email address</label>
-                    <input
-                        type="email"
-                        className="form-control"
-                        placeholder="Enter email"
-                    />
-                </div>
-                <div className="mb-3">
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        placeholder="Enter password"
-                    />
-                </div>
-                <div className="mb-3">
-                    <div className="custom-control custom-checkbox">
-                        <input
-                            type="checkbox"
-                            className="custom-control-input"
-                            id="customCheck1"
-                        />
-                        <label className="custom-control-label" htmlFor="customCheck1">
-                            Remember me
-                        </label>
-                    </div>
-                </div>
-                <div className="d-grid">
-                    <button type="submit" className="btn btn-primary">
-                        Submit
-                    </button>
-                </div>
-                <p className="forgot-password text-right">
-                    Forgot password?
-                </p>
-            </form>
-        </div>
-    );
-};
+        <div className='flex justify-around items-center w-screen h-screen'>
+            <div className='w-1/2 p-4 font-extrabold'>
+                <h1 className='text-amber-700 text-4xl'>This Is My Social Media Application Which Is Ready To Use</h1>
+            </div>
 
+            <div className='signUpFrom p-4 w-1/2'>
+                <h1 className='mb-12'>LOGIN FORM</h1>
+                <div>
+
+                    <TextField onChange={e => setEmail(e.target.value)} required fullWidth label="Enter Your Email" id="fullWidth" />
+                    <TextField onChange={e => setPassword(e.target.value)} required fullWidth label="Enter Your Password" id="fullWidth" />
+
+                </div>
+                <div>
+                    <Button onClick={LoginHanler} variant="contained" size="large" fullWidth={true} color="success" disableElevation>
+                        Login
+                    </Button>
+                </div>
+                <div style={{ textAlign: "center", padding: "10px" }}>
+                    <span>New Registration &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <Button onClick={signUpPage} variant="contained" color="success" disableElevation>
+                        SignUp
+                    </Button>
+                </div>
+            </div>
+
+        </div>
+    )
+}

@@ -1,5 +1,7 @@
 import express from "express";
-import { deleteUserController, followings, getUser, singupController, unFollowings, updateUserController } from "../../Controller/auth/singup.js";
+import { deleteUserController, followings, getUser, loginHanlder, singupController, unFollowings, updateUserController } from "../../Controller/auth/singup.js";
+
+
 
 
 const authRouter = express.Router()
@@ -8,8 +10,11 @@ const authRouter = express.Router()
 // REGISTER 
 authRouter.post("/register", singupController)
 
+//LOGIN USER
+authRouter.post("/login", loginHanlder)
+
 //UPDATE USER
-authRouter.put("/:_id", updateUserController)
+authRouter.put("/update/:_id", updateUserController)
 
 //DELETE USER 
 authRouter.delete("/deleteUser/:_id", deleteUserController)
