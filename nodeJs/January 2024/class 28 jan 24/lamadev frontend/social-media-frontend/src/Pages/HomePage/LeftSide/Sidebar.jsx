@@ -21,7 +21,7 @@ export default function Sidebar() {
                     </CardHeader>
                     <CardContent className="flex flex-col gap-4">
 
-                        {usersDummyData.map(singleUser => <LeftBarFriends singleUser={singleUser} />)}
+                        {usersDummyData.map((singleUser , index) => <LeftBarFriends key={index} singleUser={singleUser} />)}
 
                     </CardContent>
                 </Card>

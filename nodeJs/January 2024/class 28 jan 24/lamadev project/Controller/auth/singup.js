@@ -124,7 +124,7 @@ export const updateUserController = async (req, res) => {
         const updateUser = {
             email: email,
             username: username,
-            profilePicture:profilePicture
+            profilePicture: profilePicture
         };
 
         // Check if the password is provided before hashing it

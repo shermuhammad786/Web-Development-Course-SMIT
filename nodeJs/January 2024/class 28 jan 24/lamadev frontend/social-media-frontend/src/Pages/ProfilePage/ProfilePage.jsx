@@ -49,9 +49,9 @@ export default function ProfilePage({ userProfilePic }) {
                 <Navbar />
             </div>
             <div className='flex justify-between'>
-                <div className='w-2/12'>
+                {/* <div className='w-2/12'>
                     <Sidebar />
-                </div>
+                </div> */}
 
                 <div>
                     <div>
@@ -64,13 +64,13 @@ export default function ProfilePage({ userProfilePic }) {
                     </div>
 
                     <div className='flex justify-around mt-32'>
-                        <div className='w-2/5'>
+                        <div className='w-full'>
                             <Center userProfilePic={userProfilePic} />
                         </div>
 
-                        <div className='w-4/12'>
+                        {/* <div className='w-4/12'>
                             <ProfilePageRightBar />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 

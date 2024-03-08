@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+.main-container {
+  text-align: center;
+  padding: 50px;
+  background-color: #1D1E22;
+}
+
+/* Fist Section */
+.firstSec {
+  border: 1px solid #4B4C13;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #7D8B7C;
+}
+
+.firstSec p {
+  width: 98%;
+  padding: 10px;
+}
+
+.firstSecP1 {
+  border-bottom: 2px solid #4B4C13;
+}
+
+.firstSec:last-child {
+  padding: 10px;
+}
+
+/* Second Section */
+.secondSec {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.secondSec ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  list-style: none;
+}
+
+.secondSec ul li {
+  font-weight: 600;
+}
+
+.secondSec ul li:hover {
+  text-decoration: underline;
+  font-weight: 800;
+}
+
+/* Thirt Section */
+.thirdSec {
+  margin-top: 15px;
+  background-color: #4C4912;
+  border: 2px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thirdSec p {
+  font-weight: 500;
+  padding: 20px;
+  width: 85%;
+}
+
+/* forth section */
+.forthSec {
+  /* border: 2px solid red; */
+  margin-top: 30px;
+  text-align: left;
+  border: 1px solid #4B4C13;
+}
+
+.forthInner {
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.forthInner p {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  border-bottom: 1px solid gray;
+  width: 98%;
+  padding: 10px;
+}
+
+.forthInner p span {
+  width: 25%;
+}
+
+.forthInner p b {
+  width: 75%;
+}
+
+.lastP {
+  text-align: right;
+  padding: 20px;
+}
+
+.lastP span {
+  background-color: #808080;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.lottery {
+  background-color: #808080;
+  padding: 10px;
+  border-radius: 4px;
+}

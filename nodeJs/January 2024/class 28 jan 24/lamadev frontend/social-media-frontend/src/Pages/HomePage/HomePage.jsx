@@ -23,18 +23,18 @@ export default function HomePage({ userProfilePic }) {
             <div>
                 <Navbar userProfilePic={userProfilePic} />
             </div>
-            <div className='flex justify-between mt-8'>
-                <div className='w-2/12'>
+            <div className='flex justify-center mt-8'>
+                {/* <div className='w-2/12'>
                     <Sidebar />
-                </div>
+                </div> */}
 
                 <div className='w-2/5'>
                     <Center userProfilePic={userProfilePic} />
                 </div>
 
-                <div className='w-4/12'>
+                {/* <div className='w-4/12'>
                     <RightBar />
-                </div>
+                </div> */}
             </div>
         </>
     )

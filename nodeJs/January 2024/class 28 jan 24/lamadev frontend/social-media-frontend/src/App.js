@@ -6,7 +6,7 @@ import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import { SignUpForm } from "./Pages/SignUpPage/SignUp"
 import { LoginPage } from "./Pages/LoginPage/Login";
 import { Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 
 
@@ -15,14 +15,14 @@ function App() {
 
 
   const [userProfilePic, setUserProfilePic] = useState()
-  useEffect(() => {
-    const gettingData = async () => {
-      const { data } = await axios.get(`http://localhost:8000/auth/user/${localStorage.getItem("user")}`)
-      setUserProfilePic(data.user)
-      // console.log(data.user, "===>>> get logged in user")
-    }
-    gettingData()
-  }, [])
+  const gettingData = useMemo(async () => {
+    const { data } = await axios.get(`http://localhost:8000/auth/user/${localStorage.getItem("user")}`)
+    console.log(data, "--------->>>> dTA")
+    setUserProfilePic(data.user)
+    
+    // console.log(data.user, "===>>> get logged in user")
+  }, [setUserProfilePic]
+  )
   return (
     <div className="App">
 

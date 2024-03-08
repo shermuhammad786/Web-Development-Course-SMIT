@@ -10,11 +10,11 @@ import { PostProfilePic } from '../whatsonMin/Profile/Profile';
 
 
 
-export default function Post({ singlePost }) {
-
+export default function Post({ singlePost, userProfilePic }) {
+  console.log(userProfilePic, "userp profile poic")
   const [like, setLike] = useState(0)
   const [isLikes, setIsLikes] = useState(false)
-
+  console.log(singlePost.postUser[0].username, "singleost")
 
   const postLIkeHandler = () => {
     console.log(singlePost, "clicked post")
@@ -33,7 +33,7 @@ export default function Post({ singlePost }) {
         {/* user Porfile */}
         <div className='flex justify-between'>
           <div className='flex items-center gap-7'>
-            <PostProfilePic singlePost={singlePost} /> <h2>{singlePost.name}</h2> <span>5 min ago</span>
+            <PostProfilePic singlePost={singlePost} /> <h2>{singlePost?.postUser[0]?.username}</h2> <span>5 min ago</span>
           </div>
 
           {/* post edit delet btn */}
@@ -42,15 +42,15 @@ export default function Post({ singlePost }) {
 
         {/* Post Description  */}
         <div className='m-6'>
-          <p>{singlePost?.description}</p>
+          <p>{singlePost?.desc}</p>
         </div>
 
         <div>
-          <div> <img width={"100%"} src={singlePost?.profileImage} alt="" /> </div>
+          <div> <img width={"100%"} src={singlePost?.img} alt="" /> </div>
           <div className='flex justify-between mt-4'>
             <div className='m-4'>
               <Button onClickCapture={postLIkeHandler} variant="text"><ThumbUpIcon className={isLikes ? "text-blue" : "text-black"} /></Button>
-              <span><b>{like}</b> likes</span>
+              <span><b>{like}</b> {singlePost.likes.length}</span>
             </div>
             <Button variant="text"><CommentIcon className='text-black' /></Button>
 

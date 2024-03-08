@@ -5,8 +5,12 @@ import { SingUpUserSchema } from "../../Models/schema/authSchema.js";
 //CREATE A POST
 export const createPost = async (req, res) => {
     try {
-        const { userID, desc, img, likes } = req.body
+        const { desc, img, likes } = req.body
+        const userID = req.params._id
+        const findUser = await SingUpUserSchema.findById(userID);
+        console.log(findUser, "==>>> find user")
         const newPost = new postSchema({
+            postUser: findUser,
             userID: userID,
             desc: desc,
             img: img,
@@ -227,15 +231,15 @@ export const getAllPosts = async (req, res) => {
     try {
         const allPosts = await postSchema.find()
         res.json({
-            status:true,
-            message:"getting all posts successfull",
-            allPosts:allPosts
+            status: true,
+            message: "getting all posts successfull",
+            allPosts: allPosts
         })
     } catch (error) {
         res.json({
-            status:false,
-            message:"internal server error",
-            error:error.message
+            status: false,
+            message: "internal server error",
+            error: error.message
         })
 
     }
