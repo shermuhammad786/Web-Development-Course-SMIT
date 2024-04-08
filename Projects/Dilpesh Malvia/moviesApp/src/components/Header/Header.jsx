@@ -1,21 +1,17 @@
 import { Link } from "react-router-dom";
 import "./header.scss"
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchingAsyncMovies, fetchingAsyncShows, loadings, } from "../../features/Movies/movieSlice";
+import { useDispatch } from "react-redux";
+import { fetchingAsyncMovies, fetchingAsyncShows } from "../../features/Movies/movieSlice";
 
 
 export default function Header() {
 
   const [term, setTerm] = useState("")
   const dispatch = useDispatch();
-  const { data } = useSelector(fetchingAsyncMovies())
-  console.log(data , "===>>>  data")
   const submitHandler = (e) => {
     e.preventDefault()
     // const { payload } = loadings()
-    console.log(loadings(), "==>>> original  loader")
-    console.log(term, "term==>>> ");
     dispatch(fetchingAsyncMovies(term))
     dispatch(fetchingAsyncShows(term))
     setTerm("")

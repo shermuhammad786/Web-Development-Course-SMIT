@@ -30,7 +30,6 @@ const initialState = {
     movies: {},
     shows: {},
     selectedMovieOrShow: {},
-    loading: true,
 };
 
 const movieSlice = createSlice({
@@ -40,46 +39,35 @@ const movieSlice = createSlice({
         removeSelectedMovie: (state) => {
             state.selectedMovieOrShow = {};
         },
-        loadings: (state) => {
-            state.loading = true
-        },
+
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchingAsyncMovies.pending, (state) => {
+            .addCase(fetchingAsyncMovies.pending, () => {
                 console.log("pending");
-                state.loading = true
-                console.log(state.loading, ">>> state loading true")
             })
             .addCase(fetchingAsyncMovies.fulfilled, (state, action) => {
                 console.log("fetching movies successfully");
                 state.movies = action.payload;
-                state.loading = false;
-                console.log(state.loading, ">>> state loading false")
             })
             .addCase(fetchingAsyncShows.fulfilled, (state, action) => {
                 console.log("fetching series successfully");
                 state.shows = action.payload;
-                state.loading = false;
             })
             .addCase(fetchingAsyncMovieAndShowDetail.fulfilled, (state, action) => {
                 console.log("fetching movie or show successfully");
                 state.selectedMovieOrShow = action.payload;
-                // console.log(state.loading , ">>> state loading false")
             })
-            .addCase(fetchingAsyncMovies.rejected, (state) => {
+            .addCase(fetchingAsyncMovies.rejected, () => {
                 console.log("rejected...");
-                state.loading = false;
             });
     },
 });
 
 export const { removeSelectedMovie } = movieSlice.actions;
-export const { loadings } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllShows = (state) => state.movies.shows;
 export const getMovieOrShowDetail = (state) => state.movies.selectedMovieOrShow;
-// export const loadings = (state) => state.movies.loading;
 export default movieSlice.reducer;
 
 

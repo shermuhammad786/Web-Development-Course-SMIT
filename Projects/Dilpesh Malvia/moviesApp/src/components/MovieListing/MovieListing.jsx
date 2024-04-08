@@ -7,8 +7,8 @@ import { Settings } from "../../common/Settings";
 export default function MovieListing() {
   const allMovies = useSelector(getAllMovies)
   const shows = useSelector(getAllShows)
-  console.log(allMovies, "==>>> all moveis")
-  console.log(shows, "====>>> all shows")
+  // console.log(allMovies, "==>>> all moveis")
+  // console.log(shows, "====>>> all shows")
   let renderMovies, renderShows = ""
 
   renderMovies =
