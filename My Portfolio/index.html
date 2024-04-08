@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 
 <body onload="counting()">
@@ -96,7 +97,8 @@
         </div>
     </div>
 
-    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
     <!-- RESUME -->
     <div class="resume" id="resume">
         <h1 style="font-size: 80px;">Resume</h1>
@@ -105,7 +107,7 @@
     </div>
     <div class="resume_Cards">
         <div>
-            <h1 class="year">2022-2023</h1>
+            <h1 class="year">2023-2027</h1>
             <h1>Bachelor's Degree of I.T</h1>
             <h5>UNIVERSITY OF SINDH</h5>
             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is
@@ -166,8 +168,6 @@
             <img src="Assest/img/ci-1.png" alt="">
             <h3 class="h3">PRODUCT STRATEGY</h3>
         </div>
-
-
     </div>
 
     <br><br><br><br><br><br><br><br><br><br><br><br>
@@ -338,7 +338,7 @@
         <div class="freelancingText">
             <h1>I'm <span>Available </span>for freelancing</h1>
             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            <button class="hireMine">HIRE ME</button>
+            <a href="mailto:sherabro141@gmail.com"> <button class="hireMine">HIRE Me</button></a>
         </div>
         <img src="./Assest/bg_1.jpg" alt="">
     </div>
@@ -378,11 +378,11 @@
             <img src="./my pic.jpg" width="410px" alt="">
         </div>
         <div class="Input">
-            <input type="text" placeholder="Your Name"> <br>
-            <input type="email" placeholder="Your Email"><br>
-            <input type="text" placeholder="Subject"><br>
+            <input type="text" placeholder="Your Name" id="senderName"> <br>
+            <input type="email" placeholder="Your Email" id="senderEmail"><br>
+            <input type="text" placeholder="Subject" id="senderText"><br>
             <textarea name="" placeholder="Message" id="textarea" cols="10" rows="7"></textarea><br>
-            <button class="sendMessage">SEND MESSAGE</button>
+            <button onclick="sendMessagehandler()" type="submit" class="sendMessage">SEND MESSAGE</button>
         </div>
 
     </div>
@@ -439,7 +439,7 @@
         <div class="contactt">
             <h1>Contact</h1>
             <p>Labour Square near Sher Shah Karachi</p>
-            <p>Contact: 03401543460</p>
+            <p>Contact: +923401543460</p>
             <p><a href="mailto:sherabro141@gmail.com">Email Me</a></p>
         </div>
     </div>

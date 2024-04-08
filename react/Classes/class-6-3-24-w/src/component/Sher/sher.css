@@ -1,0 +1,145 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.name {
+    border: 10px solid red;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divOne {
+    position: relative;
+    border: 5px solid blue;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 150px;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+    border-bottom-left-radius: 150px;
+    /* overflow: hidden; */
+}
+
+.divTwo {
+    border-top-left-radius: 150px;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+    border-bottom-left-radius: 150px;
+    border: 5px solid blue;
+    width: 80%;
+    height: 70%;
+    /* over */
+    /* background-color: silver; */
+    /* overflow: hidden; */
+    position: relative;
+    z-index: 2;
+}
+
+/* .sher {
+    position: absolute;
+    border: 2px solid red;
+    width: 200px;
+    height: 70px;
+    left: -50px;
+    transform: rotate(-90deg);
+    border-start-start-radius: 30px;
+    border-end-start-radius: 30px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom: none;
+    border-top-left-radius: 50%;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.abs {
+    position: absolute;
+    padding: 10px;
+    background-color: red;
+    border: 2px solid black;
+    width: fit-content;
+    /* height: 150px; */
+    /* border-radius: 10px; */
+}
+
+.abs:hover {
+    background-color: green;
+}
+
+.span {
+    border: 2px solid green;
+}
+
+.sher {
+
+    left: 10px;
+    top: 30px;
+    transform: rotate(-50deg);
+    border-radius: 0 0 50% 50% / 0 0 60% 60%;
+}
+
+.faiz {
+    right: -10px;
+    transform: rotate(90deg);
+}
+
+.yameen {
+    top: -23px;
+}
+
+.barkat {
+    bottom: -30px;
+}
+
+.ihsan {
+    left: 3em;
+    top: -20px;
+    transform: rotate(-50deg);
+}
+
+.ihsanSpan {
+    /* position: relative; */
+    /* top: 30px; */
+    transform: rotate(30deg);
+}

@@ -1,0 +1,19 @@
+.curved-bottom-to-top {
+    width: 200px; /* Adjust the width as needed */
+    height: 200px; /* Adjust the height as needed */
+    background-color: #ccc; /* Adjust the background color as needed */
+    position: relative;
+  }
+  
+  .curved-bottom-to-top::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Adjust the curve height as needed */
+    background-color: #ccc; /* Same as parent background color */
+    border-radius: 50%; /* Creates a semi-circle */
+    transform: translateY(-50%) rotateX(180deg); /* Flips the semi-circle */
+  }
+  

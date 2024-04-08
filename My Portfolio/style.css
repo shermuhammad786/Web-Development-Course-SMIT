@@ -148,13 +148,14 @@
 .services_cards {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 .services_cards div {
     background-color: blanchedalmond;
     width: 400px;
     padding: 50px;
-    margin: 20px;
     text-align: center;
 }
 
@@ -299,11 +300,12 @@
 }
 
 @media only screen and (max-width:1080px) {
-    .blogcards{
+    .blogcards {
         flex-wrap: wrap;
     }
-    .blogcards div{
-        width:600px;
+
+    .blogcards div {
+        width: 600px;
     }
 }
 
