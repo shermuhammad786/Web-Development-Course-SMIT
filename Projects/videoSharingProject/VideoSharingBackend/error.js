@@ -4,11 +4,3 @@ export const createError = (status, message) => {
     err.message = message
     return err;
 }
-export const resSuccess = (status, message) => {
-    const response = {
-        success: true,
-        status: status,
-        message: message
-    }
-    return response
-}

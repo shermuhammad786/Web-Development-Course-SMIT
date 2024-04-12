@@ -59,7 +59,7 @@ export const getVideo = async (req, res, next) => {
         const video = await Video.findById(req.params.id);
         res.status(200).json(video)
     } catch (error) {
-        next(err)
+        next(errro)
     };
 }
 
@@ -72,7 +72,7 @@ export const addView = async (req, res, next) => {
         });
         res.status(200).json("the view has been increased.")
     } catch (error) {
-        next(err)
+        next(error)
     };
 }
 
@@ -82,7 +82,7 @@ export const trend = async (req, res, next) => {
         const videos = await Video.find().sort({ views: -1 });
         res.status(200).json(videos)
         const token = jwt.sign({ id: findUser._id }, process.env.JWT)
-        
+
         res.cookie("access_token", token).status(200).json(videos)
 
     } catch (error) {
@@ -92,12 +92,12 @@ export const trend = async (req, res, next) => {
 //RANDOM VIDEOS
 export const random = async (req, res, next) => {
     try {
-        const videos = await Video.aggregate([{ $sample: { size: 40 } }]);
+        const videos = await Video?.aggregate([{ $sample: { size: 40 } }]);
         res.status(200).json(videos)
-        const token = jwt.sign({ id: findUser._id }, process.env.JWT)
-        res.cookie("access_token", token, {
-            httpOnly: true,
-        })
+        // const token = jwt?.sign({ id: videos.userId }, process?.env?.JWT)
+        // res.cookie("access_token", token, {
+        //     httpOnly: true,
+        // })
     } catch (error) {
         next(error)
     };
@@ -105,11 +105,11 @@ export const random = async (req, res, next) => {
 //SUBSCRIBES VIDEOS
 export const sub = async (req, res, next) => {
     try {
-        const user = await Users.findByIdAndUpdate(req.user.id)
-        const subscribedChannels = user.subscribedUsers;
+        const user = await Users?.findByIdAndUpdate(req.user.id)
+        const subscribedChannels = user?.subscribedUsers;
 
         const list = await Promise.all(
-            subscribedChannels.map((channelId) => {
+            subscribedChannels?.map((channelId) => {
                 return Video.find({ userId: channelId });
             })
         );
@@ -128,7 +128,7 @@ export const getByTag = async (req, res, next) => {
         const videos = await Video.find({ tags: { $in: tags } }).limit(20);
         res.status(200).json(videos)
     } catch (error) {
-        next(err)
+        next(error)
     };
 }
 
@@ -140,6 +140,6 @@ export const search = async (req, res, next) => {
 
         res.status(200).json(videos)
     } catch (error) {
-        next(err)
+        next(error)
     };
 }

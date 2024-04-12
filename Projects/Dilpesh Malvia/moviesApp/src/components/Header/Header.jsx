@@ -1,19 +1,28 @@
 import { Link } from "react-router-dom";
 import "./header.scss"
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { fetchingAsyncMovies, fetchingAsyncShows } from "../../features/Movies/movieSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchingAsyncMovies, fetchingAsyncShows, searchedMovieOrShow, searchedShow } from "../../features/Movies/movieSlice";
 
 
 export default function Header() {
+  const dispatch = useDispatch();
 
   const [term, setTerm] = useState("")
-  const dispatch = useDispatch();
+  // dispatch(searchedMovieOrShow(term))
+  const data = useSelector(state => state.movies.inputMovie);
+  const searchShows = useSelector(state => state.movies.inputShow);
+  // console.log(data, "serached data , header")
+  // console.log(searchShows , "search show , header")
+
   const submitHandler = (e) => {
     e.preventDefault()
     // const { payload } = loadings()
-    dispatch(fetchingAsyncMovies(term))
-    dispatch(fetchingAsyncShows(term))
+    dispatch(searchedMovieOrShow(term))
+    dispatch(searchedShow(term))
+    // console.log(data, "searched data in funcrion")
+    dispatch(fetchingAsyncMovies(data))
+    dispatch(fetchingAsyncShows(searchShows))
     setTerm("")
   }
   return (

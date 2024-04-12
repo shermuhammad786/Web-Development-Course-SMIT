@@ -30,6 +30,8 @@ const initialState = {
     movies: {},
     shows: {},
     selectedMovieOrShow: {},
+    inputMovie: "Harry",
+    inputShow: "Friends"
 };
 
 const movieSlice = createSlice({
@@ -39,32 +41,41 @@ const movieSlice = createSlice({
         removeSelectedMovie: (state) => {
             state.selectedMovieOrShow = {};
         },
+        searchedMovieOrShow(state, action) {
+            state.inputMovie = action.payload
+        },
+        searchedShow(state, action) {
+            state.inputShow = action.payload
+        }
 
     },
     extraReducers: (builder) => {
         builder
             .addCase(fetchingAsyncMovies.pending, () => {
-                console.log("pending");
+                // console.log("pending");
             })
             .addCase(fetchingAsyncMovies.fulfilled, (state, action) => {
-                console.log("fetching movies successfully");
+                // console.log("fetching movies successfully");
                 state.movies = action.payload;
             })
             .addCase(fetchingAsyncShows.fulfilled, (state, action) => {
-                console.log("fetching series successfully");
+                // console.log("fetching series successfully");
                 state.shows = action.payload;
             })
             .addCase(fetchingAsyncMovieAndShowDetail.fulfilled, (state, action) => {
-                console.log("fetching movie or show successfully");
+                // console.log("fetching movie or show successfully");
                 state.selectedMovieOrShow = action.payload;
             })
             .addCase(fetchingAsyncMovies.rejected, () => {
-                console.log("rejected...");
+                // console.log("rejected...");
             });
     },
 });
 
 export const { removeSelectedMovie } = movieSlice.actions;
+export const { searchedMovieOrShow } = movieSlice.actions;
+export const { searchedShow } = movieSlice.actions;
+// export const getSearchedData = (state) => state.movies.inputMovieOrShow;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllShows = (state) => state.movies.shows;
 export const getMovieOrShowDetail = (state) => state.movies.selectedMovieOrShow;

@@ -1,7 +1,7 @@
 import { createError } from "../error.js"
 import Users from "../Models/Users.js"
 import Video from "../Models/Video.js";
-import { verifyToken } from "../utils/verifyToken.mjs"
+import { verifyToken } from "../utils/verifyToken.js"
 
 
 export const update = async (req, res, next) => {

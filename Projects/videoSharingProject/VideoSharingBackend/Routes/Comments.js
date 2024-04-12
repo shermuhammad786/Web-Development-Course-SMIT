@@ -1,6 +1,6 @@
 import express from "express"
 import { addComment, deleteComment, getComments } from "../Controllers/Comments.js";
-import { verifyToken } from "../utils/verifyToken.mjs";
+import { verifyToken } from "../utils/verifyToken.js";
 const router = express.Router();
 
 router.post("/", verifyToken, addComment)

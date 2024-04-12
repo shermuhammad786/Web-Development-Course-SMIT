@@ -1,6 +1,6 @@
 import express from "express"
 import { deleteUser, dislike, getUser, like, subscribe, unsubscribe, update } from "../Controllers/User.js";
-import { verifyToken } from "../utils/verifyToken.mjs";
+import { verifyToken } from "../utils/verifyToken.js";
 const router = express.Router();
 //UPDATE USER
 router.put("/:id", verifyToken, update)

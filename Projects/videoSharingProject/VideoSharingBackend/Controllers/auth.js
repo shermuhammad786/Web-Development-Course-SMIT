@@ -43,7 +43,7 @@ export const singin = async (req, res, next) => {
         // console.log("====>>>>", token)
         const { password, ...others } = findUser._doc
 
-        res.cookie("access_token", "this is my token", {
+        res.cookie("myToken", token, {
             httpOnly: true,
         }).status(200).json(others)
 

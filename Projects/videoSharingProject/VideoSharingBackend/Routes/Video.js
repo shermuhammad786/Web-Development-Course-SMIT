@@ -1,11 +1,11 @@
 import express from "express"
 import { addVideo, addView, deleteVideo, getByTag, getVideo, random, search, sub, trend, updateVideo } from "../Controllers/Video.js";
-import { verifyToken } from "../utils/verifyToken.mjs";
+import { verifyToken } from "../utils/verifyToken.js";
 
 const router = express.Router();
 
 //CREATE VIDEO
-router.post("/", verifyToken, addVideo)
+router.post("/add/video", verifyToken, addVideo)
 
 //UPDATE VIDEO
 router.put("/:id", verifyToken, updateVideo)

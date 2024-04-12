@@ -34,7 +34,8 @@ export default function NewComment({ videoId }) {
     useEffect(() => {
         const fetchComments = async () => {
             try {
-                const res = await axios.get(`http://localhost:9000/api/comments/${videoId}`)
+                const res = await axios.get(`http://localhost:9000/api/comments/${videoId}`, { withCredentials: true })
+                console.log(res.data, "comments ")
                 setComments(res.data)
             } catch (error) {
                 console.log(error)
@@ -42,15 +43,16 @@ export default function NewComment({ videoId }) {
         }
         fetchComments()
     }, [videoId])
+    console.log(comments, "===>>>>>  comment")
     return (
         <Container>
             <NewComments>
                 <Avatar src={user.img} />
                 <Input placeholder='Add a comment....' />
             </NewComments>
-            {comments.map(comment => {
+            {comments?.map(comment =>
                 <Comments key={comment._id} comment={comment} />
-            })}
+            )}
         </Container>
     )
 }

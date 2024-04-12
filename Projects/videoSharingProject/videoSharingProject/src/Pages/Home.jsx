@@ -22,7 +22,7 @@ export default function Home({ type }) {
     useEffect(() => {
         const fetchVideos = async () => {
             try {
-                const res = await axios.get(`http://localhost:9000/api/videos/${type}`);
+                const res = await axios.get(`http://localhost:9000/api/videos/${type}`, { withCredentials: true });
                 console.log(res.data, "===>>> response");
                 setVideos(res.data);
             } catch (error) {

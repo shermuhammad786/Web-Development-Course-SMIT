@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
 
@@ -34,15 +36,25 @@ const Text = styled.span`
 font-size:14px;
 color:${({ theme }) => theme.text};
 `
-export default function Comments({comment}) {
+export default function Comments({ comment }) {
+    const [channel, setChannel] = useState();
 
-    
+    useEffect(() => {
+        const fetchComment = async () => {
+            console.log(comment , "comments==>>>")
+            const res = await axios.get(`http://localhost:9000/api/users/find/${comment?.userId}`);
+            console.log(res.data , "comments user")
+            setChannel(res.data)
+        }
+        fetchComment()
+    }, [comment.userId , comment])
+
     return (
         <Container>
-            <Avatar src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flower_jtca001.jpg/1280px-Flower_jtca001.jpg' />
+            <Avatar src={channel?.img} />
             <Details>
                 <Name>
-                    Sher Muhamamd <Date>1 day ago</Date>
+                    {channel?.username} <Date>1 day ago</Date>
                 </Name>
                 <Text>
                     {comment.desc}
@@ -53,5 +65,5 @@ export default function Comments({comment}) {
 }
 
 Comments.propTypes = {
-    comment: PropTypes.string.isRequired
+    comment: PropTypes.object.isRequired
 }

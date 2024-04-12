@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchingAsyncMovieAndShowDetail, getMovieOrShowDetail, removeSelectedMovie } from "../../features/Movies/movieSlice"
 import { useEffect } from "react"
 export default function MovieDetails() {
-  console.log(useParams(), "==>>> use search params")
+  // console.log(useParams(), "==>>> use search params")
   const { imdbID } = useParams()
   const dispatch = useDispatch();
   const data = useSelector(getMovieOrShowDetail);

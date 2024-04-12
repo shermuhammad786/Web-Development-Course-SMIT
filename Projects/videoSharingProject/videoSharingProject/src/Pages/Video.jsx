@@ -17,6 +17,7 @@ import channelDefaultimage from "../../public/assests/channel.jpeg"
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { subscription } from '../Redux/userSlice';
+import Recommendation from '../Components/Recommendation/Recommendation';
 
 
 
@@ -32,7 +33,8 @@ const Content = styled.div`
 flex:5;
 `
 
-const VideoWrapper = styled.div``
+const VideoWrapper = styled.div`
+`
 // const DisplayVideo = styled.video`
 
 // `
@@ -116,18 +118,18 @@ padding:10px 20px;
 cursor:pointer;
 `
 const VideoFrame = styled.video`
-max-height:720px,
-width:100%,
+max-height:520px;
+width:100%;
 object-fit:cover,
 `
-// const Recommendation = styled.div`
-// flex:2;
-// `
+
 
 export default function Video() {
 
   const { user } = useSelector((state) => state.user);
   const { currentVideo } = useSelector((state) => state.video);
+  // const users = useSelector(state => state.user)
+  // console.log(users , "subcjlfsadjjfo==>>> ")
   const dispatch = useDispatch()
 
   const path = useLocation().pathname.split("/")[2]
@@ -135,6 +137,9 @@ export default function Video() {
 
   //  const [video , setVideo] = useState({});
   const [channel, setChannel] = useState({});
+  const [subs, setSubs] = useState(null)
+  const [loader, setLoader] = useState(true)
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -143,45 +148,53 @@ export default function Video() {
         const channelRes = await axios.get(`http://localhost:9000/api/users/find/${videoRes.data.userId}`)
 
         dispatch(fetchSuccess(videoRes.data))
-        setChannel(channelRes.data)
+
+        setChannel(channelRes.data);
+        setSubs(channel.subscribers)
+
+        // console.log(channel, "channel in useEffect==>>>>  ")
       } catch (error) {
         console.log(error, "eror==>>>>  ")
       }
     }
     fetchData()
-  }, [path, dispatch])
+  }, [path, dispatch, channel.subscribers])
 
   console.log(user, "user")
   console.log(channel, "channel")
   console.log(currentVideo, "cureent video")
   const likeHandler = async () => {
-    await axios.put(`http://localhost:9000/api/users/like${currentVideo._id}`)
+    await axios.put(`http://localhost:9000/api/users/like/${currentVideo._id}`, {}, { withCredentials: true })
     dispatch(like(user._id))
   }
   const dislikeHandler = async () => {
-    await axios.put(`http://localhost:9000/api/users/dislike${currentVideo._id}`)
+    await axios.put(`http://localhost:9000/api/users/dislike/${currentVideo._id}`, {}, { withCredentials: true })
     dispatch(dislike(user._id))
   }
   const subscriptionHandler = async () => {
-    user.subscribedUsers.includes(channel._id)
+    setLoader(false)
+    channel && user?.subscribedUsers?.includes(channel._id) ? setSubs(prev => prev + 1) : setSubs(prev => prev - 1)
+
+    user?.subscribedUsers?.includes(channel._id)
       ?
-      await axios.put(`http://localhost:9000/api/users/sub/${channel._id}`)
+      await axios.put(`http://localhost:9000/api/users/unsub/${channel._id}`, {}, { withCredentials: true })
       :
-      await axios.put(`http://localhost:9000/api/users/unsub/${channel._id}`)
+      await axios.put(`http://localhost:9000/api/users/sub/${channel._id}`, {}, { withCredentials: true })
 
     dispatch(subscription(channel._id))
+    setLoader(true)
   }
 
 
   useEffect(() => {
-    document.title = "video"
-  }, [])
+    document.title = "video";
+  }, [user?.subscribedUsers, channel._id])
   // element.allowFullScreen = true;
   return (
     <Container>
       <Content>
         <VideoWrapper>
-          <VideoFrame src={currentVideo?.videoUrl}></VideoFrame>
+          <VideoFrame src={currentVideo?.videoUrl} controls></VideoFrame>
         </VideoWrapper>
         <Title>{currentVideo?.title}</Title>
         <Details>
@@ -199,26 +212,21 @@ export default function Video() {
             <ChannelImage src={channel?.img === "" ? channelDefaultimage : channel?.img} />
             <ChannelDetails>
               <ChannelName>{channel?.username}</ChannelName>
-              <ChannelCounter>{channel?.subscribers} subcribers</ChannelCounter>
+              <ChannelCounter>{subs} Subcribers</ChannelCounter>
               <Description>{currentVideo?.desc}</Description>
             </ChannelDetails>
           </ChannelInfo>
-          <Subscribe onClick={subscriptionHandler}>{user.subscribedUsers?.includes(channel._id) ? "SUBSCRIBED" : "SUBSCRIBE"}</Subscribe>
+          {
+            loader === true ?
+              <Subscribe onClick={subscriptionHandler}>{user?.subscribedUsers?.includes(channel._id) ? "SUBSCRIBED" : "SUBSCRIBE"}</Subscribe> :
+              <Subscribe>LOADING...</Subscribe>
+          }
         </Channel>
         <Hr />
         <NewComment videoId={currentVideo?._id} />
       </Content>
-      {/* <Recommendation>
-        <VideoCards type={"sm"} />
-        <VideoCards type={"sm"} />
-        <VideoCards type={"sm"} />
-        <VideoCards type={"sm"} />
-        <VideoCards type={"sm"} />
-        <VideoCards type={"sm"} />
-        <VideoCards type={"sm"} />
-        <VideoCards type={"sm"} />
-        <VideoCards type={"sm"} />
-      </Recommendation> */}
+      <Recommendation tags={currentVideo?.tags} />
+        
     </Container>
   )
 }

@@ -80,14 +80,10 @@ export default function SingIn() {
     const signinHandler = async () => {
         dispatch(loginStart())
         try {
-            const res = await axios.post("http://localhost:9000/api/auth/singin", { username, password })
-            // const cookieSet = await axios.get("http://localhost:9000/api/auth/setcookie")
-            // console.log(cookieSet, "cookie set")
+            const res = await axios.post("http://localhost:9000/api/auth/singin", { username, password }, { withCredentials: true });
+
             dispatch(loginSuccess(res.data))
-            // const token = Date.now()
-            // cookie.set('access_token', "my__token");
-            // console.log(res.cookie, "cookieee")
-            // console.log(res.data, "===>>> data")
+
         } catch (error) {
             console.log(error)
             dispatch(loginFailure())

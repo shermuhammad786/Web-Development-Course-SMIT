@@ -17,44 +17,20 @@ dotenv.config()
 
 const app = Express()
 DBConnection()
-// app.use(cors({
-//     // origin: 'http://localhost:5173', // Adjust the port if your frontend is running on a different port
-//     credentials: true
-// }));
-// const corsOptions = {
-//     allowedHeaders: ['Content-Type'], // Allow only specified headers
-//     credentials: true              // Enable sending cookies cross-origin
-// };
-
-// app.use(cors(corsOptions));
-
-
 
 app.use(Express.json())
-app.use(cors({
-    origin: 'http://localhost:5173',
-    credentials: true // enable sending cookies cross-origin if needed
-}));
-app.use(cors())
+app.use(cookieParser());
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
     next();
 });
-
-app.use(cookieParser());
-app.use("/api/auth", authRoutes)
-app.use("/api/users", userRoutes)
-app.use("/api/videos", videoRoutes)
-app.use("/api/comments", commentRoutes)
-
-// app.get('/setcookie', (req, res) => {
-//     // Set a cookie named 'myCookie' with value 'hello'
-//     res.cookie('myCookie', 'hello');
-//     res.send('Cookie is set');
-// });
+app.use(cors({
+    origin: 'https://uptight-cap-worm.cyclic.app',
+    credentials: true // enable sending cookies cross-origin if needed
+}));
 
 app.use((err, req, res, next) => {
     const status = err.status || 500
@@ -65,11 +41,12 @@ app.use((err, req, res, next) => {
         message,
     })
 })
+
+app.use("/api/auth", authRoutes)
+app.use("/api/users", userRoutes)
+app.use("/api/videos", videoRoutes)
+app.use("/api/comments", commentRoutes)
+
 app.listen(9000, () => {
     console.log("port is running!")
 })
-
-
-
-
-// mongodb+srv://hafiz786:videosharingsecondProject@cluster0.9tohlre.mongodb.net/

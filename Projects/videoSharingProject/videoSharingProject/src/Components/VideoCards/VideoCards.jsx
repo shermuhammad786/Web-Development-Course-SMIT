@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { format as formatTimeAgo } from 'timeago.js/esm';
-
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -59,11 +58,11 @@ color:${({ theme }) => theme.textSoft};
 export default function VideoCards({ type, video }) {
 
   const [channel, setChannel] = useState([])
-
+  // console.log(video, "video ,===>>>")
   useEffect(() => {
     const fetchChannel = async () => {
       try {
-        const res = await axios.get(`http://localhost:9000/api/users/find/${video.userId}`);
+        const res = await axios.get(`http://localhost:9000/api/users/find/${video?.userId}`);
         // console.log(res.data, "===>>> response");
         setChannel(res.data);
       } catch (error) {
