@@ -133,7 +133,7 @@ export default function Video() {
   const dispatch = useDispatch()
 
   const path = useLocation().pathname.split("/")[2]
-  console.log(path)
+  // console.log(path)
 
   //  const [video , setVideo] = useState({});
   const [channel, setChannel] = useState({});
@@ -154,15 +154,15 @@ export default function Video() {
 
         // console.log(channel, "channel in useEffect==>>>>  ")
       } catch (error) {
-        console.log(error, "eror==>>>>  ")
+        // console.log(error, "eror==>>>>  ")
       }
     }
     fetchData()
   }, [path, dispatch, channel.subscribers])
 
-  console.log(user, "user")
-  console.log(channel, "channel")
-  console.log(currentVideo, "cureent video")
+  // console.log(user, "user")
+  // console.log(channel, "channel")
+  // console.log(currentVideo, "cureent video")
   const likeHandler = async () => {
     await axios.put(`http://localhost:9000/api/users/like/${currentVideo._id}`, {}, { withCredentials: true })
     dispatch(like(user._id))
@@ -172,23 +172,29 @@ export default function Video() {
     dispatch(dislike(user._id))
   }
   const subscriptionHandler = async () => {
-    setLoader(false)
-    channel && user?.subscribedUsers?.includes(channel._id) ? setSubs(prev => prev + 1) : setSubs(prev => prev - 1)
+    try {
+      setLoader(false)
+      channel && user?.subscribedUsers?.includes(channel._id) ? setSubs(prev => prev + 1) : setSubs(prev => prev - 1)
 
-    user?.subscribedUsers?.includes(channel._id)
-      ?
-      await axios.put(`http://localhost:9000/api/users/unsub/${channel._id}`, {}, { withCredentials: true })
-      :
-      await axios.put(`http://localhost:9000/api/users/sub/${channel._id}`, {}, { withCredentials: true })
+      user?.subscribedUsers?.includes(channel._id)
+        ?
+        await axios.put(`http://localhost:9000/api/users/unsub/${channel._id}`, {}, { withCredentials: true })
+        :
+        await axios.put(`http://localhost:9000/api/users/sub/${channel._id}`, {}, { withCredentials: true })
 
-    dispatch(subscription(channel._id))
-    setLoader(true)
+      setLoader(true)
+      dispatch(subscription(channel._id))
+    } catch (error) {
+      setLoader(true)
+    } finally {
+      loader(true);
+    }
   }
 
 
   useEffect(() => {
     document.title = "video";
-  }, [user?.subscribedUsers, channel._id])
+  }, [user?.subscribedUsers, channel?._id])
   // element.allowFullScreen = true;
   return (
     <Container>
@@ -218,7 +224,7 @@ export default function Video() {
           </ChannelInfo>
           {
             loader === true ?
-              <Subscribe onClick={subscriptionHandler}>{user?.subscribedUsers?.includes(channel._id) ? "SUBSCRIBED" : "SUBSCRIBE"}</Subscribe> :
+              <Subscribe onClick={subscriptionHandler}>{user?.subscribedUsers?.includes(channel?._id) ? "SUBSCRIBED" : "SUBSCRIBE"}</Subscribe> :
               <Subscribe>LOADING...</Subscribe>
           }
         </Channel>
@@ -226,7 +232,7 @@ export default function Video() {
         <NewComment videoId={currentVideo?._id} />
       </Content>
       <Recommendation tags={currentVideo?.tags} />
-        
+
     </Container>
   )
 }

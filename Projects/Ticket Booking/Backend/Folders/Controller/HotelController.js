@@ -3,7 +3,7 @@ import HotelModel from "../Models/HotelSchema.js";
 import { createError } from "../../utils/Error.js";
 
 // CREATE HOTEL 
-export const createHotel = async (req, res) => {
+export const createHotel = async (req, res, next) => {
     const newHotel = new HotelModel(req.body);
     try {
         const savedHotel = await newHotel.save();
@@ -46,6 +46,24 @@ export const getHotel = async (req, res) => {
 
 // GET ALL HOTEL
 export const getAllHotels = async (req, res, next) => {
+    try {
+        const gettedHotels = await HotelModel.find();
+        res.status(200).json(gettedHotels);
+    } catch (error) {
+        next(error)
+    }
+}
+// GET ALL HOTEL
+export const countByCity = async (req, res, next) => {
+    try {
+        const gettedHotels = await HotelModel.find();
+        res.status(200).json(gettedHotels);
+    } catch (error) {
+        next(error)
+    }
+}
+// GET ALL HOTEL
+export const CountByType = async (req, res, next) => {
     try {
         const gettedHotels = await HotelModel.find();
         res.status(200).json(gettedHotels);

@@ -18,12 +18,12 @@ gap:52px;
 export default function Home({ type }) {
 
     const [videos, setVideos] = useState([])
-    console.log(type, "type==>>>>>")
+    // console.log(type, "type==>>>>>")
     useEffect(() => {
         const fetchVideos = async () => {
             try {
                 const res = await axios.get(`http://localhost:9000/api/videos/${type}`, { withCredentials: true });
-                console.log(res.data, "===>>> response");
+                // console.log(res.data, "===>>> response");
                 setVideos(res.data);
             } catch (error) {
                 console.error("Error fetching videos:", error);

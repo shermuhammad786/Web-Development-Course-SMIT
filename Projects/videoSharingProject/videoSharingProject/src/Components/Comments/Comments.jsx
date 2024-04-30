@@ -36,18 +36,18 @@ const Text = styled.span`
 font-size:14px;
 color:${({ theme }) => theme.text};
 `
-export default function Comments({ comment }) {
+export default function Comments({ newComment }) {
     const [channel, setChannel] = useState();
 
     useEffect(() => {
         const fetchComment = async () => {
-            console.log(comment , "comments==>>>")
-            const res = await axios.get(`http://localhost:9000/api/users/find/${comment?.userId}`);
-            console.log(res.data , "comments user")
+            // console.log(comment , "comments==>>>")
+            const res = await axios.get(`http://localhost:9000/api/users/find/${newComment?.userId}`);
+            // console.log(res.data , "comments user")
             setChannel(res.data)
         }
         fetchComment()
-    }, [comment.userId , comment])
+    }, [newComment.userId, newComment])
 
     return (
         <Container>
@@ -57,7 +57,7 @@ export default function Comments({ comment }) {
                     {channel?.username} <Date>1 day ago</Date>
                 </Name>
                 <Text>
-                    {comment.desc}
+                    {newComment.desc}
                 </Text>
             </Details>
         </Container>
@@ -65,5 +65,5 @@ export default function Comments({ comment }) {
 }
 
 Comments.propTypes = {
-    comment: PropTypes.object.isRequired
+    newComment: PropTypes.object.isRequired
 }

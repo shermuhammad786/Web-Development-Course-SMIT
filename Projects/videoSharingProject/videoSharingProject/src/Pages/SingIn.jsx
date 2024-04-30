@@ -5,8 +5,10 @@ import { loginFailure, loginStart, loginSuccess } from "../Redux/userSlice"
 import { useDispatch } from 'react-redux'
 import { auth, provider } from "../fireabseConfig.js"
 import { signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom"
 // import Cookies from 'universal-cookie';
 // import Cookies from 'js-cookie';
+
 
 
 const Container = styled.div`
@@ -67,48 +69,71 @@ margin-left:30px;
 
 
 export default function SingIn() {
+    const navigate = useNavigate()
     // const cookie = new Cookies()
     useEffect(() => {
         document.title = "SignIn"
     }, [])
-    const [username, setUsername] = useState()
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState();
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("");
+    const [img, setImg] = useState("");
     const dispatch = useDispatch()
-    console.log(email)
-
+    // console.log(email)
+    // email
     const signinHandler = async () => {
         dispatch(loginStart())
         try {
             const res = await axios.post("http://localhost:9000/api/auth/singin", { username, password }, { withCredentials: true });
-
-            dispatch(loginSuccess(res.data))
-
+            if (res.status == 200) {
+                navigate("/")
+                dispatch(loginSuccess(res.data))
+            }
         } catch (error) {
-            console.log(error)
+            alert("Invalid Credentails!")
             dispatch(loginFailure())
         }
     }
-    const signInwithGoogle = async () => {
+    const singupHandler = async () => {
         dispatch(loginStart())
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                console.log(result, "===>>>> result")
-                axios.post("http://localhost:9000/api/auth/google", {
-                    username: result.user.displayName,
-                    email: result.user.email,
-                    img: result.user.photoURL,
-                }).then((res) => {
-                    // const token = Date.now()
-                    // cookies.set("access_token", `30892hf${token}23894yutr9hiOR`)
-                    dispatch(loginSuccess(res.data))
-                })
-            }).catch((error) => {
-                console.log(error)
-                dispatch(loginFailure())
-            })
-
+        if (img === "") return alert("please Enter the image URL")
+        try {
+            const res = await axios.post("http://localhost:9000/api/auth/singup", { username, password, email, img }, { withCredentials: true });
+            if (res.status == 200) {
+                alert("SingUp successfully diverting you to Homepage")
+                dispatch(loginSuccess(res.data))
+                navigate("/")
+                setUsername("")
+                setEmail("")
+                setPassword("")
+                setImg("")
+            }
+        } catch (error) {
+            alert("Invalid Credentails!")
+            // dispatch(loginFailure())
+        }
     }
+    const signInwithGoogle = async () => {
+        dispatch(loginStart());
+
+        try {
+            const result = await signInWithPopup(auth, provider);
+            // console.log(result, "===>>> result ")
+            const response = await axios.post("http://localhost:9000/api/auth/google", {
+                username: result?.user?.displayName,
+                email: result?.user?.email,
+                img: result?.user?.photoURL,
+            }, { withCredentials: true });
+
+            navigate("/`")
+            dispatch(loginSuccess(response.data));
+        } catch (error) {
+            console.error("Error signing in with Google or making API call:", error);
+            dispatch(loginFailure());
+        }
+    };
+
+
     return (
         <Container>
             <Wrapper>
@@ -120,10 +145,11 @@ export default function SingIn() {
                 <Title>OR</Title>
                 <Button onClick={signInwithGoogle}>Signin with google</Button>
                 <Title>OR</Title>
+                <Input type="text" placeholder="Enter Image Url" onChange={e => setImg(e.target.value)} />
                 <Input placeholder="username" onChange={e => setUsername(e.target.value)} />
                 <Input placeholder="email" onChange={e => setEmail(e.target.value)} />
                 <Input type="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
-                <Button>SING UP</Button>
+                <Button onClick={singupHandler}>SING UP</Button>
             </Wrapper>
             <More>
                 English(USA)

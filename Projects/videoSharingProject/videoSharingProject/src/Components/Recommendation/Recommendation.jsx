@@ -7,13 +7,13 @@ const Container = styled.div`
 flex:2;
 `
 export default function Recommendation({ tags }) {
-    console.log(tags, "tags")
+    // console.log(tags, "tags")
     const [videos, setVideos] = useState();
     useEffect(() => {
         const fetchVideos = async () => {
             const res = await axios.get(`http://localhost:9000/api/videos/tags?tags=${tags}`);
             setVideos(res.data)
-            console.log(res.data, "tags data")
+            // console.log(res.data, "tags data")
         }
         fetchVideos();
     }, [tags])
@@ -28,5 +28,5 @@ export default function Recommendation({ tags }) {
 }
 
 Recommendation.propTypes = {
-    tags: propTypes.array.isRequired
+    tags: propTypes.array
 }

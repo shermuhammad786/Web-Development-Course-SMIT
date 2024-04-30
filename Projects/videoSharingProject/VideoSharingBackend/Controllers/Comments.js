@@ -8,7 +8,7 @@ export const addComment = async (req, res, next) => {
         const savedComment = await newComment.save();
         res.status(200).send(savedComment)
     } catch (error) {
-        next(err)
+        next(error)
     }
 }
 export const deleteComment = async (req, res, next) => {
@@ -21,7 +21,7 @@ export const deleteComment = async (req, res, next) => {
             next(createError(403, "You can only delete your comment"))
         }
     } catch (error) {
-        next(err)
+        next(error)
     }
 }
 export const getComments = async (req, res, next) => {

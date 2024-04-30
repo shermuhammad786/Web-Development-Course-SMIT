@@ -87,15 +87,11 @@ export default function Upload({ setOpen }) {
     }
     const tagsHandler = (e) => {
         setTags(e.target.value.split(","));
-        console.log(tags , "tags")
+        // console.log(tags , "tags")
     }
 
     const uploadHandler = async () => {
-        // e.preventDefault()
-        // const inpputs = { ...inputs }
-        console.log({ ...inputs }, "==>>> inputs")
         const res = await axios.post("http://localhost:9000/api/videos/add/video", {...inputs , tags} , {withCredentials:true});
-        console.log((res.status))
         setOpen(false);
         res.status === 200 && navigate(`/video/${res.data._id}`);
 
@@ -109,16 +105,12 @@ export default function Upload({ setOpen }) {
 
         uploadTask.on('state_changed',
             (snapshot) => {
-                // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                // console.log('Upload is ' + progress + '% done');
                 urlType === "imgUrl" ? setImagePrec(Math.round(progress)) : setVideoPerc(Math.round(progress));
                 switch (snapshot.state) {
                     case 'paused':
-                        console.log('Upload is paused');
                         break;
                     case 'running':
-                        console.log('Upload is running', urlType);
                         break;
                     default:
                         break;
@@ -143,7 +135,7 @@ export default function Upload({ setOpen }) {
 
     }
 
-    console.log(inputs, "===>>> unpo9its")
+    // console.log(inputs, "===>>> unpo9its")
 
     return (
         <Container>

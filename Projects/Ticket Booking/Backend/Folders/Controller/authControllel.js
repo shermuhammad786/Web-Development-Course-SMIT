@@ -39,7 +39,7 @@ export const loginUser = async (req, res, next) => {
         const { password, isAdmin, ...other } = getUser?._doc;
 
         // SETTING UP COOKIE
-        const token = JWT.sign({ id: getUser?._id, admin: getUser.isAdmin }, process.env.JWT_SECRATE);
+        const token = JWT.sign({ id: getUser?._id, isAdmin: getUser.isAdmin }, process.env.JWT_SECRATE);
 
         res.cookie("access_token", token, {
             httpOnly: true,

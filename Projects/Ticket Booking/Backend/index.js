@@ -4,6 +4,8 @@ import dotevn from "dotenv"
 import authRoutes from "./Folders/Routes/authRoutes.js";
 import hotelRoutes from "./Folders/Routes/hotelRoutes.js";
 import cookieParser from "cookie-parser";
+import userRoutes from "./Folders/Routes/userRoutes.js";
+import roomsRouter from "./Folders/Routes/roomsRouter.js";
 const app = express()
 dotevn.config()
 
@@ -12,6 +14,8 @@ app.use(express.json())
 app.use(cookieParser())
 app.use("/www.bookingapp.com/api/v1", authRoutes);
 app.use("/www.bookingapp.com/api/v1", hotelRoutes);
+app.use("/www.bookingapp.com/api/v1", userRoutes);
+app.use("/www.bookingapp.com/api/v1", roomsRouter);
 
 
 //ERROR MIDDLEWARE

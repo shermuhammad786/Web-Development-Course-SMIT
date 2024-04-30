@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types';
 import Comments from './Comments';
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { commentSuccess } from '../../Redux/comments';
+import { allCommentsSuccess } from '../../Redux/allCommnetsSlice';
 
 const Container = styled.div`
 
@@ -28,34 +30,51 @@ width:100%;
 color:${({ theme }) => theme.text}
 `
 export default function NewComment({ videoId }) {
-
+    const dispatch = useDispatch()
+    const { allComments } = useSelector((state) => state.allCommnets);
+    // console.log(allComments, "all comments")
     const { user } = useSelector((state) => state.user);
-    const [comments, setComments] = useState([])
-    useEffect(() => {
-        const fetchComments = async () => {
-            try {
-                const res = await axios.get(`http://localhost:9000/api/comments/${videoId}`, { withCredentials: true })
-                console.log(res.data, "comments ")
-                setComments(res.data)
-            } catch (error) {
-                console.log(error)
-            }
+    // const [comments, setComments] = useState([]);
+    const [desc, setDesc] = useState("");
+
+    // console.log(desc, "new comment...")
+    const fetchComments = async () => {
+        try {
+            const res = await axios.get(`http://localhost:9000/api/comments/${videoId}`, { withCredentials: true })
+            // console.log(res.data, "comments ")
+            dispatch(allCommentsSuccess(res.data))
+            setDesc("")
+            // setComments(res.data)
+        } catch (error) {
+            // console.log(error)
         }
+    }
+    useEffect(() => {
         fetchComments()
-    }, [videoId])
-    console.log(comments, "===>>>>>  comment")
+    }, [])
+
+    const submitHandler = async (e) => {
+        e.preventDefault();
+        const res = await axios.post("http://localhost:9000/api/comments", { desc, videoId }, { withCredentials: true });
+        dispatch(commentSuccess(res?.data))
+        // console.log(res.data);
+        fetchComments()
+    }
+    // console.log(comments, "===>>>>>  comment")
     return (
         <Container>
             <NewComments>
-                <Avatar src={user.img} />
-                <Input placeholder='Add a comment....' />
+                <Avatar src={user?.img} />
+                <form onSubmit={submitHandler}>
+                    <Input value={desc} placeholder='Add a comment....' onChange={e => setDesc(e.target.value)} />
+                </form>
             </NewComments>
-            {comments?.map(comment =>
-                <Comments key={comment._id} comment={comment} />
+            {allComments?.map(newComment =>
+                <Comments key={newComment?._id} newComment={newComment} />
             )}
         </Container>
     )
 }
 NewComment.propTypes = {
-    videoId: PropTypes.string.isRequired
+    videoId: PropTypes.string
 }
